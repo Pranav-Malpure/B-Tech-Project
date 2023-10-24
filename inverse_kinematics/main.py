@@ -62,7 +62,7 @@ from dm_control.composer import Task
 from dm_env import Environment
 from dm_control.composer.environment import Environment # Even though this may be labelled as blue, it is a class from the file 
   
-from forward_kinematics import forward_kinematics
+from forward_kinematics import forward_kinematics, get_angles
 from dm_control import composer as _composer
 from agent import SACAgent
 
@@ -110,7 +110,7 @@ def save_video(frames, output_path, framerate=30):
     # save_video(frames, output_path, framerate=30)
 
 class SACModel(nn.Module):
-    def __init__(self, obs_shape, action_size):
+    def __init__(self, obs, action_size):
         super().__init__()
         # self.actor = nn.Sequential(
         #     nn.Conv2d(obs_shape[3], 32, kernel_size=8, stride=4, padding=2),
@@ -125,10 +125,14 @@ class SACModel(nn.Module):
         #     nn.Linear(256, action_size),
         #     nn.Tanh()
         # )
-        self.obs_shape = obs_shape
-        joints_pos_size = obs_shape[2]
+        self.obs_shape = obs
+        joints_pos_size = obs.shape[1]
+        # input_size = torch.prod(torch.tensor(joints_pos_size)).item()
+        # print("input_size", input_size)
         self.actor = nn.Sequential(
             nn.Linear(joints_pos_size, 256),
+            nn.ReLU(),
+            nn.Linear(256, 256),
             nn.ReLU(),
             nn.Linear(256, action_size),
             nn.Tanh()
@@ -251,9 +255,11 @@ state_dim = np.size(env.random_state.uniform(
 # print("state_spec, ", state_dim)
 
 obs = env.step([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1, 1, 1])
-# obs = env.step([0, 0, 0, 0, 0, 0, 1, 1, 1])
+
 print(obs[3])
 print(obs[3]['jaco_arm/joints_pos'])
+print(get_angles(obs[3]['jaco_arm/joints_pos'][0]))
+
 # obs_shape = np.shape(np.squeeze(obs[3]['front_close']))
 # obs_shape = np.shape(obs[3]['front_close'])
 # print(np.shape(obs[3]['front_close']))
@@ -265,8 +271,9 @@ print("joints_pos = ", joints_pos)
 print("joints_pos_type = ", type(joints_pos))
 
 print("joints_pos.shape = ", joints_pos.shape)
-model = SACModel(joints_pos.shape, action_dim)
-# exit()
+print("joints_pos.shape[2] = ", joints_pos.shape[1])
+model = SACModel(joints_pos, action_dim)
+
 optimizer = optim.Adam(model.parameters(), lr = 3e-4)
 
 agent = SoftActorCritic(
@@ -281,24 +288,30 @@ agent = SoftActorCritic(
     gpu=-1, 
 )
 
+experiment = copy.deepcopy(torch.tensor(obs[3]['jaco_arm/joints_pos']))
 
+# print("SHAPE?? ",(torch.tensor(obs[3]['jaco_arm/joints_pos'])).flatten(start_dim=1).shape)
+# print("SHAPE?? ",(torch.tensor(obs[3]['jaco_arm/joints_pos'])).flatten(start_dim=1).flatten().shape)
+# print(agent.policy(torch.tensor(obs[3]['jaco_arm/joints_pos']).flatten(start_dim=1)))
+# exit()
 for episode in range(300):
     obs = env.reset()
     obs = env.step([0, 0, 0, 0, 0, 0, 1, 1, 1])
     obs_ = obs[3]
-
+    
     R = 0 
     t = 0  
     counter = 0
     max_episode_len = 200
     while True:
         # print("While loop counter: ",counter)
-        obs_pos = torch.tensor(obs_['jaco_arm/joints_pos'], dtype=torch.float32)
+        obs_pos = torch.tensor(get_angles(obs_['jaco_arm/joints_pos'][0]), dtype=torch.float32)
         # obs_pos = torch.FloatTensor(obs_['jaco_arm/joints_pos'])
         # obs_image = obs_image.squeeze(0).permute(2,1,0)
         # obs_image.permute(2,0,1)
         # action = agent.act(obs_image)
         # action = agent.act(obs_image.permute(0,3,1,2))
+        # print("obs_shape ", obs_pos.shape)
         action = agent.act(obs_pos)
         time_step = env.step(action)
         reward = time_step.reward
@@ -312,7 +325,7 @@ for episode in range(300):
         # next_obs = time_step.observation['front_close']
         obs_ = time_step[3]
         reset = t > max_episode_len
-        agent.observe(obs_['jaco_arm/joints_pos'], reward, done, reset)
+        agent.observe(get_angles(obs_['jaco_arm/joints_pos'][0]), reward, done, reset)
 
         # experiences = [[{'state': obs}],[{'action': action}],[{'reward': reward}],[{'is_state_terminal': done}],[{'next_state': next_obs}]]
         # agent.update(experiences)

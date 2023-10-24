@@ -60,3 +60,11 @@ def forward_kinematics(array_of_joint_angles):
     # print("End effector position:", position)
     # print("End effector orientation:\n", orientation)
 
+def get_angles(array_of_joint_angles):
+    theta1 = np.arctan2(array_of_joint_angles[0][0], array_of_joint_angles[0][1])
+    theta2 = np.arctan2(array_of_joint_angles[1][0], array_of_joint_angles[1][1])
+    theta3 = np.arctan2(array_of_joint_angles[2][0], array_of_joint_angles[2][1])
+    theta4 = np.arctan2(array_of_joint_angles[3][0], array_of_joint_angles[3][1])
+    theta5 = np.arctan2(array_of_joint_angles[4][0], array_of_joint_angles[4][1])
+    theta6 = np.arctan2(array_of_joint_angles[5][0], array_of_joint_angles[5][1])
+    return [theta1, theta2, theta3, theta4, theta5, theta6]
