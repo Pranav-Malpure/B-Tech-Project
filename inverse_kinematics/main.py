@@ -3,12 +3,14 @@ from dm_control import mujoco
 import gymnasium as gym
 from gym import wrappers
 import pfrl
-from pfrl import replay_buffers
+from pfrl import replay_buffers, experiments
 from pfrl.agents import SoftActorCritic
+from pfrl.nn.lmbda import Lambda
 
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from torch import distributions
 # Access to enums and MuJoCo library functions.
 from dm_control.mujoco.wrapper.mjbindings import enums
 from dm_control.mujoco.wrapper.mjbindings import mjlib
@@ -24,6 +26,7 @@ import itertools
 import numpy as np
 import collections
 
+import functools
 # Graphics-related
 import matplotlib
 import matplotlib.animation as animation
@@ -68,6 +71,8 @@ from agent import SACAgent
 
 from utils.hyperparameters import hyperparams
 from utils.plot_utils import plot_rewards
+import moviepy.editor as mp
+
 # from dmc
 
 duration = 20    # (seconds)
@@ -125,45 +130,78 @@ class SACModel(nn.Module):
         #     nn.Linear(256, action_size),
         #     nn.Tanh()
         # )
-        self.obs_shape = obs
-        joints_pos_size = obs.shape[1]
+        # self.obs_shape = obs
+        self.action_size = action_size
+        obs_size = obs.shape[1]
+        print("SAC class", obs_size)
+        print("SAC class action", action_size)
         # input_size = torch.prod(torch.tensor(joints_pos_size)).item()
         # print("input_size", input_size)
         self.actor = nn.Sequential(
-            nn.Linear(joints_pos_size, 256),
+            nn.Linear(obs_size, 256),
             nn.ReLU(),
             nn.Linear(256, 256),
             nn.ReLU(),
-            nn.Linear(256, action_size),
-            nn.Tanh()
+            nn.Linear(256, action_size*2),
+            Lambda(self.squashed_diagonal_gaussian_head)
+        )
+        torch.nn.init.xavier_uniform_(self.actor[0].weight)
+        torch.nn.init.xavier_uniform_(self.actor[2].weight)
+        torch.nn.init.xavier_uniform_(self.actor[4].weight, gain=1)
+
+        # self.q1 = pfrl.q_functions.FCQuadraticStateQFunction(
+        #     n_input_channels=joints_pos_size,
+        #     n_dim_action=action_size,
+        #     n_hidden_channels=256,
+        #     n_hidden_layers=3,
+        #     action_space=action_size
+        # )
+
+        # self.q2 = pfrl.q_functions.FCQuadraticStateQFunction(
+        #     # pfrl.nn.ConcatObsAndAction(),
+        #     n_input_channels=joints_pos_size,
+        #     n_dim_action=action_size,
+        #     n_hidden_channels=256,
+        #     n_hidden_layers=3,
+        #     action_space=action_size
+        # )
+        self.q_func1, self.q_func1_optimizer = self.make_q_func_with_optimizer(obs_size, action_size)
+        self.q_func2, self.q_func2_optimizer = self.make_q_func_with_optimizer(obs_size, action_size)
+
+    def make_q_func_with_optimizer(self, obs_size, action_size):
+        q_func = nn.Sequential(
+            pfrl.nn.ConcatObsAndAction(),
+            nn.Linear(obs_size + action_size, 256),
+            nn.ReLU(),
+            nn.Linear(256, 256),
+            nn.ReLU(),
+            nn.Linear(256, 1),
+        )
+        torch.nn.init.xavier_uniform_(q_func[1].weight)
+        torch.nn.init.xavier_uniform_(q_func[3].weight)
+        torch.nn.init.xavier_uniform_(q_func[5].weight)
+        q_func_optimizer = torch.optim.Adam(q_func.parameters(), lr=3e-4)
+        return q_func, q_func_optimizer
+    def squashed_diagonal_gaussian_head(self, x):
+        # print("input from linear", x.shape)
+        assert x.shape[-1] == self.action_size * 2
+        mean, log_scale = torch.chunk(x, 2, dim=1)
+        log_scale = torch.clamp(log_scale, -20.0, 2.0)
+        var = torch.exp(log_scale * 2)
+        base_distribution = distributions.Independent(
+            distributions.Normal(loc=mean, scale=torch.sqrt(var)), 1
+        )
+        # cache_size=1 is required for numerical stability
+        return distributions.transformed_distribution.TransformedDistribution(
+            base_distribution, [distributions.transforms.TanhTransform(cache_size=1)]
         )
 
-
-        self.q1 = pfrl.q_functions.FCQuadraticStateQFunction(
-            n_input_channels=joints_pos_size,
-            n_dim_action=action_size,
-            n_hidden_channels=256,
-            n_hidden_layers=3,
-            action_space=action_size
-        )
-
-        self.q2 = pfrl.q_functions.FCQuadraticStateQFunction(
-            n_input_channels=joints_pos_size,
-            n_dim_action=action_size,
-            n_hidden_channels=256,
-            n_hidden_layers=3,
-            action_space=action_size
-        )
-
-# np.random.seed(42)
 np.random.seed(4)
 
 
 # Visualize the joint axis
 scene_option = mujoco.wrapper.core.MjvOption()
 scene_option.flags[enums.mjtVisFlag.mjVIS_JOINT] = True
-
-
 
 
 name = 'jaco_arm'
@@ -271,88 +309,122 @@ print("joints_pos = ", joints_pos)
 print("joints_pos_type = ", type(joints_pos))
 
 print("joints_pos.shape = ", joints_pos.shape)
-print("joints_pos.shape[2] = ", joints_pos.shape[1])
+print("joints_pos.shape[1] = ", joints_pos.shape[1])
+print("action_dim = ", action_dim)
 model = SACModel(joints_pos, action_dim)
 
 optimizer = optim.Adam(model.parameters(), lr = 3e-4)
+policy = model.actor
+
+torch.nn.init.xavier_uniform_(policy[0].weight)
+torch.nn.init.xavier_uniform_(policy[2].weight)
+torch.nn.init.xavier_uniform_(policy[4].weight, gain=1)
+policy_optimizer = torch.optim.Adam(policy.parameters(), lr=3e-4)
 
 agent = SoftActorCritic(
     policy=model.actor,
-    q_func1=model.q1,
-    q_func2=model.q2,
-    policy_optimizer=optimizer,
-    q_func1_optimizer=optimizer,
-    q_func2_optimizer=optimizer,
+    q_func1=model.q_func1,
+    q_func2=model.q_func2,
+    policy_optimizer=policy_optimizer,
+    q_func1_optimizer=model.q_func1_optimizer,
+    q_func2_optimizer=model.q_func2_optimizer,
     replay_buffer=replay_buffers.ReplayBuffer(capacity=10 ** 6),
     gamma=0.99,
-    gpu=-1, 
+    # phi = lambda x: x.astype('float32', copy=False), 
+    gpu=-1,
+
 )
 
 experiment = copy.deepcopy(torch.tensor(obs[3]['jaco_arm/joints_pos']))
-
+# experiments.train_agent_batch_with_evaluation(
+#     agent = agent, env=make_batch_env(test=False),
+# )
 # print("SHAPE?? ",(torch.tensor(obs[3]['jaco_arm/joints_pos'])).flatten(start_dim=1).shape)
 # print("SHAPE?? ",(torch.tensor(obs[3]['jaco_arm/joints_pos'])).flatten(start_dim=1).flatten().shape)
 # print(agent.policy(torch.tensor(obs[3]['jaco_arm/joints_pos']).flatten(start_dim=1)))
 # exit()
-for episode in range(300):
-    obs = env.reset()
-    obs = env.step([0, 0, 0, 0, 0, 0, 1, 1, 1])
-    obs_ = obs[3]
-    
-    R = 0 
-    t = 0  
-    counter = 0
-    max_episode_len = 200
-    while True:
-        # print("While loop counter: ",counter)
-        obs_pos = torch.tensor(get_angles(obs_['jaco_arm/joints_pos'][0]), dtype=torch.float32)
-        # obs_pos = torch.FloatTensor(obs_['jaco_arm/joints_pos'])
-        # obs_image = obs_image.squeeze(0).permute(2,1,0)
-        # obs_image.permute(2,0,1)
-        # action = agent.act(obs_image)
-        # action = agent.act(obs_image.permute(0,3,1,2))
-        # print("obs_shape ", obs_pos.shape)
-        action = agent.act(obs_pos)
-        time_step = env.step(action)
-        reward = time_step.reward
-        if reward == None:
-            continue
-        if time_step.step_type == 1:
-            done = False
-        elif time_step.step_type == 2:
-            done = True
+# agent.load('trained_agent')
+# for episode in range(1000):
+#     obs = env.reset()
+#     # obs = env.step([0, 0, 0, 0, 0, 0, 1, 1, 1])
+#     obs_ = obs[3]
+#     # print(obs_)
+#     # obs_ =  np.array(get_angles(obs_['jaco_arm/joints_pos'][0]))
+#     # # print("size of obs from step", obs_.shape)
+#     # action = agent.act(obs_)
+#     # print("actionnnnnn", action)
+#     # agent.observe(obs_, 0.2, False, False)
+#     # print("executed observe")
+#     R = 0 
+#     t = 0  
+#     counter = 0
+#     max_episode_len = 200
+#     while True:
+#         # print("While loop counter: ",counter)
+
+#         obs_pos = torch.tensor(get_angles(obs_['jaco_arm/joints_pos'][0]), dtype=torch.float32)
+#         # obs_pos = get_angles(obs_['jaco_arm/joints_pos'][0])
+#         # obs_pos = np.array(get_angles(obs_['jaco_arm/joints_pos'][0]))
+#         # print("obs_pos inside the while loop", obs_pos.shape)
+                           
+#         # obs_pos = torch.FloatTensor(obs_['jaco_arm/joints_pos'])
+#         # obs_image = obs_image.squeeze(0).permute(2,1,0)
+#         # obs_image.permute(2,0,1)
+#         # action = agent.act(obs_image)
+#         # action = agent.act(obs_image.permute(0,3,1,2))
+#         # print("obs_shape ", obs_pos.shape)
+#         action = agent.act(obs_pos)
+#         time_step = env.step(action)
+#         reward = time_step.reward
+#         if reward == None:
+#             continue
+#         if time_step.step_type == 1:
+#             done = False
+#         elif time_step.step_type == 2:
+#             done = True
         
-        # next_obs = time_step.observation['front_close']
-        obs_ = time_step[3]
-        reset = t > max_episode_len
-        agent.observe(get_angles(obs_['jaco_arm/joints_pos'][0]), reward, done, reset)
+#         # next_obs = time_step.observation['front_close']
+#         obs_ = time_step[3]
+#         reset = t > max_episode_len
+#         # reset = False
+#         obs_pos = torch.tensor(get_angles(obs_['jaco_arm/joints_pos'][0]), dtype=torch.float32)
+#         agent.observe(obs_pos, reward, done, reset)
 
-        # experiences = [[{'state': obs}],[{'action': action}],[{'reward': reward}],[{'is_state_terminal': done}],[{'next_state': next_obs}]]
-        # agent.update(experiences)
+#         # experiences = [[{'state': obs}],[{'action': action}],[{'reward': reward}],[{'is_state_terminal': done}],[{'next_state': next_obs}]]
+#         # agent.update(experiences)
 
-        # obs_ = next_obs
-        R += reward
-        t += 1
+#         # obs_ = next_obs
+#         R += reward
+#         t += 1
 
-        if done:
-            break
-        counter += 1
+#         if done:
+#             break
+#         counter += 1
 
-    if episode % 1 == 0:
-        print(f'Episode: {episode + 1}, Total Reward: {R}')
-    if episode % 5 == 0:
-        print('statistics:', agent.get_statistics())
+#     if episode % 1 == 0:
+#         print(f'Episode: {episode + 1}, Total Reward: {R}')
+#     if episode % 10 == 0:
+#         print('statistics:', agent.get_statistics())
 
+# agent.save('trained_agent')
+# print("TRAINING DONE")
+agent.load('trained_agent')
+
+visual_env = _composer.Environment(reach_site_vision(), time_limit=duration)
+
+frames = []
 with agent.eval_mode():
     for i in range(10):
         obs = env.reset()
-        obs =  env.step([0, 0, 0, 0, 0, 0, 1, 1, 1])
+        # obs =  env.step([0, 0, 0, 0, 0, 0, 1, 1, 1])
         obs_ = obs[3]
+        visual_env.reset()
         R = 0
         t = 0
         while True:
-            obs_image = torch.tensor(obs_['front_close'], dtype=torch.float32) 
-            action = agent.act(obs_image.permute(0,3,1,2))
+            obs_pos = (get_angles(obs_['jaco_arm/joints_pos'][0]))
+            # obs_pos = get_angles(obs_['jaco_arm/joints_pos'][0])
+            action = agent.act(torch.tensor(obs_pos, dtype=torch.float32))
             time_step = env.step(action)
             r = time_step.reward
             if r == None:
@@ -362,16 +434,28 @@ with agent.eval_mode():
             elif time_step.step_type == 2:
                 done = True
             obs_ = time_step[3]
+            obs_pos = torch.tensor(get_angles(obs_['jaco_arm/joints_pos'][0]), dtype=torch.float32)
             # obs, r, done, _ = env.step(action)
             R += r
             t += 1
-            reset = t == 200
-            agent.observe(obs_, r, done, reset)
+            reset = t > 200
+            agent.observe(obs_pos, r, done, reset)
+            timestep_visual = visual_env.step(action)
+            frames.append(timestep_visual.observation['front_close'])
             if done or reset:
                 break
         print('evaluation episode:', i, 'R:', R)
+        all_frames = np.concatenate(frames, axis=0)
+        filename = f'reach_vision_testing_hd_mpeg4_{i}.gif'
+        # save_video(all_frames, filename, 30)
+        frames = []
 
-torch.save(model.state_dict(), 'sac_model.pth')
+# for i in range(10):
+#     filename = f'reach_vision_testing_hd_mpeg4_{i}.gif'
+#     filename_mp4 = f'{i}.mp4'
+#     clip = mp.VideoFileClip(filename)
+#     clip.write_videofile(filename_mp4)
+# torch.save(model.state_dict(), 'sac_model.pth')
 
 exit()
 

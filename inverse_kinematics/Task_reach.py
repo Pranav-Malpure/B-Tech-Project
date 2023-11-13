@@ -45,7 +45,7 @@ _SITE_WORKSPACE = _ReachWorkspace(
         upper=(0.2, 0.2, 0.4)),
     arm_offset=robots.ARM_OFFSET)
 
-_TARGET_RADIUS = 0.05
+_TARGET_RADIUS = 0.075
 
 
 class Reach_task(composer.Task):

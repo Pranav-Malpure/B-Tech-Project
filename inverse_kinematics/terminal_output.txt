@@ -1,0 +1,884 @@
+Episode: 329, Total Reward: -265.03353879654986
+Episode: 330, Total Reward: -381.34451589849
+Episode: 331, Total Reward: -735.8753212874301
+statistics: [('average_q1', 362.93378), ('average_q2', 362.9608), ('average_q_func1_loss', 88.482455368042), ('average_q_func2_loss', 89.19227523803711), ('n_updates', 155501), ('average_entropy', 4.841644), ('temperature', 1.0)]
+Episode: 332, Total Reward: -472.78631804514157
+Episode: 333, Total Reward: -207.52997072335594
+Episode: 334, Total Reward: -361.9598648489939
+Episode: 335, Total Reward: -493.38412902157705
+Episode: 336, Total Reward: -407.53460298822074
+statistics: [('average_q1', 363.89587), ('average_q2', 363.7585), ('average_q_func1_loss', 145.10314575195312), ('average_q_func2_loss', 145.64386427402496), ('n_updates', 158001), ('average_entropy', 4.90342), ('temperature', 1.0)]
+Episode: 337, Total Reward: -240.50310574061686
+Episode: 338, Total Reward: 2615.095481354879
+Episode: 339, Total Reward: -402.15928323493324
+Episode: 340, Total Reward: -344.11381665509793
+Episode: 341, Total Reward: -243.8756316639318
+statistics: [('average_q1', 362.38132), ('average_q2', 362.8578), ('average_q_func1_loss', 138.3974610710144), ('average_q_func2_loss', 139.84069503784178), ('n_updates', 160501), ('average_entropy', 4.9021945), ('temperature', 1.0)]
+Episode: 342, Total Reward: -515.0114976093025
+Episode: 343, Total Reward: -278.7088161602495
+Episode: 344, Total Reward: -434.0765180231776
+Episode: 345, Total Reward: -478.5050090296041
+Episode: 346, Total Reward: -311.43727776970104
+statistics: [('average_q1', 360.51672), ('average_q2', 360.79926), ('average_q_func1_loss', 149.4460931253433), ('average_q_func2_loss', 151.81670646667482), ('n_updates', 163001), ('average_entropy', 4.857248), ('temperature', 1.0)]
+Episode: 347, Total Reward: -266.89604909292865
+Episode: 348, Total Reward: -252.83291176958704
+Episode: 349, Total Reward: -254.4687775899657
+Episode: 350, Total Reward: -480.2117477815828
+Episode: 351, Total Reward: -365.42849957483526
+statistics: [('average_q1', 360.87708), ('average_q2', 360.40326), ('average_q_func1_loss', 119.17025640487671), ('average_q_func2_loss', 118.31397483825684), ('n_updates', 165501), ('average_entropy', 4.871091), ('temperature', 1.0)]
+Episode: 352, Total Reward: -388.5105023110701
+Episode: 353, Total Reward: 495.2838314673834
+Episode: 354, Total Reward: -209.01449760865725
+Episode: 355, Total Reward: -358.9180992771509
+Episode: 356, Total Reward: -271.0842886244802
+statistics: [('average_q1', 364.03638), ('average_q2', 364.39053), ('average_q_func1_loss', 132.51658429145812), ('average_q_func2_loss', 132.72365429878235), ('n_updates', 168001), ('average_entropy', 4.772239), ('temperature', 1.0)]
+Episode: 357, Total Reward: 782.0919296744786
+Episode: 358, Total Reward: -495.2485868706738
+Episode: 359, Total Reward: -368.86078985067445
+Episode: 360, Total Reward: -508.3386448984079
+Episode: 361, Total Reward: -300.744734057464
+statistics: [('average_q1', 360.635), ('average_q2', 360.7084), ('average_q_func1_loss', 116.80814121723175), ('average_q_func2_loss', 117.96292427062988), ('n_updates', 170501), ('average_entropy', 4.8661356), ('temperature', 1.0)]
+Episode: 362, Total Reward: -489.06268406581444
+Episode: 363, Total Reward: -530.4139763882655
+Episode: 364, Total Reward: -339.99529119683945
+Episode: 365, Total Reward: -361.358592751181
+Episode: 366, Total Reward: -313.24188837538566
+statistics: [('average_q1', 358.28555), ('average_q2', 358.35266), ('average_q_func1_loss', 144.920759601593), ('average_q_func2_loss', 144.44934697151183), ('n_updates', 173001), ('average_entropy', 4.8842897), ('temperature', 1.0)]
+Episode: 367, Total Reward: -354.2678269558286
+Episode: 368, Total Reward: -420.5644514316633
+Episode: 369, Total Reward: 1655.5229889412192
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.698561
+Episode: 370, Total Reward: -326.5131778259443
+Episode: 371, Total Reward: -287.4311891511026
+statistics: [('average_q1', 357.12198), ('average_q2', 356.9604), ('average_q_func1_loss', 135.93705481529236), ('average_q_func2_loss', 135.0026268863678), ('n_updates', 175501), ('average_entropy', 4.950107), ('temperature', 1.0)]
+Episode: 372, Total Reward: -423.97833586547114
+Episode: 373, Total Reward: -429.14329580122455
+Episode: 374, Total Reward: -541.9916109574219
+Episode: 375, Total Reward: -509.5892214382115
+Episode: 376, Total Reward: -478.42991433691503
+statistics: [('average_q1', 362.14304), ('average_q2', 362.1744), ('average_q_func1_loss', 130.38795384407044), ('average_q_func2_loss', 130.09801915168762), ('n_updates', 178001), ('average_entropy', 5.017389), ('temperature', 1.0)]
+Episode: 377, Total Reward: -185.9331173423955
+Episode: 378, Total Reward: -327.92307363664247
+Episode: 379, Total Reward: -370.5956109021822
+Episode: 380, Total Reward: 1749.6260098370183
+Episode: 381, Total Reward: -333.7959095634461
+statistics: [('average_q1', 361.7643), ('average_q2', 361.7946), ('average_q_func1_loss', 104.80285711288452), ('average_q_func2_loss', 105.43014335155488), ('n_updates', 180501), ('average_entropy', 4.9967375), ('temperature', 1.0)]
+Episode: 382, Total Reward: 4820.619018630461
+Episode: 383, Total Reward: -370.1905239984231
+Episode: 384, Total Reward: -353.0261779688191
+Episode: 385, Total Reward: -512.4580302434603
+Episode: 386, Total Reward: 4454.901230903708
+statistics: [('average_q1', 352.53174), ('average_q2', 352.52634), ('average_q_func1_loss', 156.2981931781769), ('average_q_func2_loss', 158.00875834941863), ('n_updates', 183001), ('average_entropy', 4.931115), ('temperature', 1.0)]
+Episode: 387, Total Reward: -341.96767921779355
+Episode: 388, Total Reward: -311.07400716374315
+Episode: 389, Total Reward: -389.0875760069161
+WARNING:absl:Failed to converge after 99 steps: err_norm=2.15841
+WARNING:absl:Failed to converge after 99 steps: err_norm=2.21128
+Episode: 390, Total Reward: -642.2064383003168
+Episode: 391, Total Reward: -343.9377611618306
+statistics: [('average_q1', 359.89957), ('average_q2', 359.8234), ('average_q_func1_loss', 180.45654927253725), ('average_q_func2_loss', 183.02339064121247), ('n_updates', 185501), ('average_entropy', 4.879321), ('temperature', 1.0)]
+Episode: 392, Total Reward: -157.9082903224552
+Episode: 393, Total Reward: 1009.0968141825774
+Episode: 394, Total Reward: -410.83485153217146
+Episode: 395, Total Reward: -307.9788231805352
+Episode: 396, Total Reward: -658.588833364199
+statistics: [('average_q1', 355.08618), ('average_q2', 355.24057), ('average_q_func1_loss', 117.14662118911743), ('average_q_func2_loss', 118.71167585372925), ('n_updates', 188001), ('average_entropy', 4.972665), ('temperature', 1.0)]
+Episode: 397, Total Reward: -444.1735834989238
+Episode: 398, Total Reward: 3999.885011836579
+Episode: 399, Total Reward: -541.282121469246
+Episode: 400, Total Reward: -486.9168519375122
+Episode: 401, Total Reward: -366.28772291290034
+statistics: [('average_q1', 358.7939), ('average_q2', 358.93875), ('average_q_func1_loss', 128.07859638690948), ('average_q_func2_loss', 127.99654539108276), ('n_updates', 190501), ('average_entropy', 5.054191), ('temperature', 1.0)]
+Episode: 402, Total Reward: -397.4789953287069
+Episode: 403, Total Reward: -442.89006426849636
+Episode: 404, Total Reward: -225.9089507102083
+Episode: 405, Total Reward: -205.1135317688797
+Episode: 406, Total Reward: -400.8016197328083
+statistics: [('average_q1', 358.1237), ('average_q2', 358.28397), ('average_q_func1_loss', 109.16914922237396), ('average_q_func2_loss', 108.25317562103271), ('n_updates', 193001), ('average_entropy', 5.1023955), ('temperature', 1.0)]
+Episode: 407, Total Reward: -269.0602480221603
+Episode: 408, Total Reward: -449.1599371444128
+Episode: 409, Total Reward: -379.24947094019416
+Episode: 410, Total Reward: -306.441802248252
+Episode: 411, Total Reward: -280.8218892172234
+statistics: [('average_q1', 351.08218), ('average_q2', 350.8335), ('average_q_func1_loss', 112.73797438621521), ('average_q_func2_loss', 112.80654029846191), ('n_updates', 195501), ('average_entropy', 4.9424443), ('temperature', 1.0)]
+Episode: 412, Total Reward: -346.943511583992
+WARNING:absl:Failed to converge after 99 steps: err_norm=1.92445
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.682679
+Episode: 413, Total Reward: -237.63119070876792
+Episode: 414, Total Reward: -110.3730241762486
+Episode: 415, Total Reward: -390.52694214684533
+Episode: 416, Total Reward: -323.3020720126846
+statistics: [('average_q1', 356.93298), ('average_q2', 356.88), ('average_q_func1_loss', 157.96844841957093), ('average_q_func2_loss', 158.96683924674988), ('n_updates', 198001), ('average_entropy', 4.9580226), ('temperature', 1.0)]
+Episode: 417, Total Reward: -310.96260383137866
+Episode: 418, Total Reward: 105.79091840907903
+Episode: 419, Total Reward: -367.0598263730605
+Episode: 420, Total Reward: -337.93062676692745
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.184093
+Episode: 421, Total Reward: -407.0299859470593
+statistics: [('average_q1', 359.082), ('average_q2', 358.87558), ('average_q_func1_loss', 136.25747338294983), ('average_q_func2_loss', 135.49135305404664), ('n_updates', 200501), ('average_entropy', 4.9871287), ('temperature', 1.0)]
+Episode: 422, Total Reward: -405.16175328811283
+Episode: 423, Total Reward: -285.96785255121495
+Episode: 424, Total Reward: -331.0653959154312
+Episode: 425, Total Reward: -372.9141941054512
+Episode: 426, Total Reward: -313.0234355401853
+statistics: [('average_q1', 357.98975), ('average_q2', 358.1084), ('average_q_func1_loss', 122.2700651359558), ('average_q_func2_loss', 121.41151110649109), ('n_updates', 203001), ('average_entropy', 5.05426), ('temperature', 1.0)]
+Episode: 427, Total Reward: -329.64601104978743
+Episode: 428, Total Reward: -343.8276038470021
+Episode: 429, Total Reward: -297.28779507511086
+Episode: 430, Total Reward: -170.48399782201935
+Episode: 431, Total Reward: -498.4197528073924
+statistics: [('average_q1', 358.98688), ('average_q2', 358.81277), ('average_q_func1_loss', 172.62117550849914), ('average_q_func2_loss', 172.60385308265685), ('n_updates', 205501), ('average_entropy', 4.952965), ('temperature', 1.0)]
+Episode: 432, Total Reward: 1031.6479440004982
+Episode: 433, Total Reward: -202.01667506851197
+Episode: 434, Total Reward: 94.90265958219881
+Episode: 435, Total Reward: -402.60491090684286
+Episode: 436, Total Reward: -482.791425567332
+statistics: [('average_q1', 356.46683), ('average_q2', 356.4647), ('average_q_func1_loss', 119.2052920627594), ('average_q_func2_loss', 118.73148860454559), ('n_updates', 208001), ('average_entropy', 5.13791), ('temperature', 1.0)]
+WARNING:absl:Failed to converge after 99 steps: err_norm=2.50268
+Episode: 437, Total Reward: -310.26092658759336
+Episode: 438, Total Reward: 4200.904784472178
+Episode: 439, Total Reward: -327.0234350270026
+Episode: 440, Total Reward: -6.379287913216644
+Episode: 441, Total Reward: -269.88820375216335
+statistics: [('average_q1', 353.38394), ('average_q2', 353.08618), ('average_q_func1_loss', 125.6790410900116), ('average_q_func2_loss', 125.86162314891816), ('n_updates', 210501), ('average_entropy', 5.0184155), ('temperature', 1.0)]
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.262981
+Episode: 442, Total Reward: 1493.3370251660147
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.367261
+Episode: 443, Total Reward: -543.3090249974581
+Episode: 444, Total Reward: -883.941177519323
+Episode: 445, Total Reward: -380.75183736331047
+Episode: 446, Total Reward: -600.520396337087
+statistics: [('average_q1', 355.29974), ('average_q2', 355.63855), ('average_q_func1_loss', 136.22603909492491), ('average_q_func2_loss', 137.41176920413972), ('n_updates', 213001), ('average_entropy', 5.0787344), ('temperature', 1.0)]
+Episode: 447, Total Reward: -288.3417450814076
+Episode: 448, Total Reward: -572.9626135605272
+Episode: 449, Total Reward: -222.76370409299628
+Episode: 450, Total Reward: -503.16006686349186
+Episode: 451, Total Reward: -207.93908962100778
+statistics: [('average_q1', 356.48032), ('average_q2', 356.33722), ('average_q_func1_loss', 163.97171739578246), ('average_q_func2_loss', 164.71793850898743), ('n_updates', 215501), ('average_entropy', 5.130092), ('temperature', 1.0)]
+Episode: 452, Total Reward: -445.48321223229453
+Episode: 453, Total Reward: -330.76442985455066
+Episode: 454, Total Reward: -212.35082699707672
+Episode: 455, Total Reward: -260.35460557812513
+Episode: 456, Total Reward: -248.45025599448888
+statistics: [('average_q1', 355.34384), ('average_q2', 355.70035), ('average_q_func1_loss', 145.83347793579102), ('average_q_func2_loss', 144.9161510038376), ('n_updates', 218001), ('average_entropy', 4.863795), ('temperature', 1.0)]
+Episode: 457, Total Reward: -428.73393149206476
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.0238628
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.023828
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.00489386
+Episode: 458, Total Reward: -516.4260615640087
+Episode: 459, Total Reward: -516.0506303705974
+Episode: 460, Total Reward: -272.5517275983106
+Episode: 461, Total Reward: -456.494670155967
+statistics: [('average_q1', 357.34344), ('average_q2', 357.31415), ('average_q_func1_loss', 121.23191266059875), ('average_q_func2_loss', 121.98478950977325), ('n_updates', 220501), ('average_entropy', 5.2268586), ('temperature', 1.0)]
+Episode: 462, Total Reward: -337.58303387901015
+Episode: 463, Total Reward: -825.5901993080872
+Episode: 464, Total Reward: -442.654190474085
+Episode: 465, Total Reward: -289.04644521390344
+Episode: 466, Total Reward: -487.58678660103794
+statistics: [('average_q1', 358.10596), ('average_q2', 358.00336), ('average_q_func1_loss', 120.28446839332581), ('average_q_func2_loss', 119.52918341636658), ('n_updates', 223001), ('average_entropy', 5.181849), ('temperature', 1.0)]
+Episode: 467, Total Reward: -244.44769628899675
+Episode: 468, Total Reward: -368.80516723781415
+Episode: 469, Total Reward: 2134.41390456659
+Episode: 470, Total Reward: -445.6880886016126
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.214115
+Episode: 471, Total Reward: -299.80288962284743
+statistics: [('average_q1', 355.15842), ('average_q2', 355.10834), ('average_q_func1_loss', 105.5894873046875), ('average_q_func2_loss', 105.18797089576721), ('n_updates', 225501), ('average_entropy', 5.0020776), ('temperature', 1.0)]
+Episode: 472, Total Reward: -468.7783454205295
+Episode: 473, Total Reward: -319.49910157612504
+Episode: 474, Total Reward: -213.0428118448973
+Episode: 475, Total Reward: -418.4178755536715
+Episode: 476, Total Reward: 620.3220681786017
+statistics: [('average_q1', 349.60986), ('average_q2', 349.57562), ('average_q_func1_loss', 104.49750185489654), ('average_q_func2_loss', 104.36018081665038), ('n_updates', 228001), ('average_entropy', 5.090036), ('temperature', 1.0)]
+Episode: 477, Total Reward: -364.9511133328026
+Episode: 478, Total Reward: -238.2611499302964
+Episode: 479, Total Reward: -166.92591306973807
+Episode: 480, Total Reward: -360.2017053588525
+Episode: 481, Total Reward: -357.20192057366467
+statistics: [('average_q1', 351.52753), ('average_q2', 351.5047), ('average_q_func1_loss', 138.85607054233552), ('average_q_func2_loss', 140.67852793216704), ('n_updates', 230501), ('average_entropy', 5.1648836), ('temperature', 1.0)]
+Episode: 482, Total Reward: -296.5366451012241
+Episode: 483, Total Reward: 424.00594426476067
+Episode: 484, Total Reward: 1010.938664883489
+Episode: 485, Total Reward: 430.4700626959238
+Episode: 486, Total Reward: -378.94700052783935
+statistics: [('average_q1', 350.1067), ('average_q2', 350.07968), ('average_q_func1_loss', 145.35537785053253), ('average_q_func2_loss', 144.03082438468934), ('n_updates', 233001), ('average_entropy', 5.13559), ('temperature', 1.0)]
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.0877802
+Episode: 487, Total Reward: -253.94775279986524
+Episode: 488, Total Reward: -272.94230997428537
+Episode: 489, Total Reward: -299.1834332114957
+Episode: 490, Total Reward: 219.18028838082546
+Episode: 491, Total Reward: -366.874002935
+statistics: [('average_q1', 345.6992), ('average_q2', 345.84625), ('average_q_func1_loss', 98.00829223155975), ('average_q_func2_loss', 97.94169408798217), ('n_updates', 235501), ('average_entropy', 5.2673836), ('temperature', 1.0)]
+Episode: 492, Total Reward: -224.48121457256917
+Episode: 493, Total Reward: -348.77057862465614
+Episode: 494, Total Reward: -371.77383034324356
+Episode: 495, Total Reward: -438.3583337916075
+Episode: 496, Total Reward: 337.4445643674657
+statistics: [('average_q1', 354.9546), ('average_q2', 354.82977), ('average_q_func1_loss', 131.0317635345459), ('average_q_func2_loss', 130.3731709957123), ('n_updates', 238001), ('average_entropy', 5.279913), ('temperature', 1.0)]
+Episode: 497, Total Reward: -409.09933623422586
+Episode: 498, Total Reward: 665.1516604170056
+Episode: 499, Total Reward: -338.08872502370684
+Episode: 500, Total Reward: -227.83308378580753
+Episode: 501, Total Reward: -251.85682753242253
+statistics: [('average_q1', 353.16388), ('average_q2', 353.19174), ('average_q_func1_loss', 142.21346236228942), ('average_q_func2_loss', 140.95895840167998), ('n_updates', 240501), ('average_entropy', 5.235249), ('temperature', 1.0)]
+Episode: 502, Total Reward: -159.78550729917126
+Episode: 503, Total Reward: 662.4095943259051
+Episode: 504, Total Reward: -300.9817489408904
+Episode: 505, Total Reward: -273.12917408716083
+Episode: 506, Total Reward: -447.48399968451577
+statistics: [('average_q1', 350.78668), ('average_q2', 350.461), ('average_q_func1_loss', 99.52509301662445), ('average_q_func2_loss', 100.35862502098084), ('n_updates', 243001), ('average_entropy', 5.1862655), ('temperature', 1.0)]
+Episode: 507, Total Reward: -504.0234107471521
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.170926
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.0899156
+Episode: 508, Total Reward: -300.1092508445931
+Episode: 509, Total Reward: -242.85495222057224
+Episode: 510, Total Reward: -186.61979907580502
+Episode: 511, Total Reward: -320.9356302025138
+statistics: [('average_q1', 352.19867), ('average_q2', 352.4563), ('average_q_func1_loss', 130.1925146484375), ('average_q_func2_loss', 131.57104606628417), ('n_updates', 245501), ('average_entropy', 5.1594734), ('temperature', 1.0)]
+Episode: 512, Total Reward: -343.5494745238036
+Episode: 513, Total Reward: 2369.2248480658122
+Episode: 514, Total Reward: -389.8037701972762
+Episode: 515, Total Reward: -155.1919909744119
+Episode: 516, Total Reward: -311.5561179618297
+statistics: [('average_q1', 352.7401), ('average_q2', 353.05237), ('average_q_func1_loss', 118.16626043319702), ('average_q_func2_loss', 117.97241070270539), ('n_updates', 248001), ('average_entropy', 5.263001), ('temperature', 1.0)]
+Episode: 517, Total Reward: -270.59157926390975
+Episode: 518, Total Reward: -285.4922543957984
+Episode: 519, Total Reward: -274.7039055413946
+Episode: 520, Total Reward: -325.49134217842015
+Episode: 521, Total Reward: -205.72554555013176
+statistics: [('average_q1', 355.30518), ('average_q2', 355.29306), ('average_q_func1_loss', 158.87529810905457), ('average_q_func2_loss', 161.98193536758424), ('n_updates', 250501), ('average_entropy', 4.9321985), ('temperature', 1.0)]
+Episode: 522, Total Reward: -262.669412113034
+Episode: 523, Total Reward: -303.3464404585082
+Episode: 524, Total Reward: 223.83025526960387
+Episode: 525, Total Reward: -513.796158408388
+Episode: 526, Total Reward: -197.49691157184492
+statistics: [('average_q1', 351.1341), ('average_q2', 351.01935), ('average_q_func1_loss', 157.17326220989227), ('average_q_func2_loss', 155.62785735607147), ('n_updates', 253001), ('average_entropy', 5.1561756), ('temperature', 1.0)]
+Episode: 527, Total Reward: -427.6920841874749
+Episode: 528, Total Reward: -222.19922876006012
+Episode: 529, Total Reward: -299.94287576428184
+Episode: 530, Total Reward: 34.050833867777
+Episode: 531, Total Reward: -490.52928796746295
+statistics: [('average_q1', 350.5328), ('average_q2', 350.89832), ('average_q_func1_loss', 142.3932381439209), ('average_q_func2_loss', 144.11799842834472), ('n_updates', 255501), ('average_entropy', 5.117222), ('temperature', 1.0)]
+Episode: 532, Total Reward: -386.23495419896875
+Episode: 533, Total Reward: -403.1423625836655
+Episode: 534, Total Reward: -336.82833432718974
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.208954
+Episode: 535, Total Reward: -292.4227683626186
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.709517
+Episode: 536, Total Reward: -383.98688359489546
+statistics: [('average_q1', 357.18887), ('average_q2', 357.61758), ('average_q_func1_loss', 105.43448206424713), ('average_q_func2_loss', 106.15209344863892), ('n_updates', 258001), ('average_entropy', 5.302617), ('temperature', 1.0)]
+Episode: 537, Total Reward: -225.55848238908646
+Episode: 538, Total Reward: 507.97111308298605
+Episode: 539, Total Reward: -360.4955477654781
+Episode: 540, Total Reward: -237.03446734107484
+Episode: 541, Total Reward: -506.93690179425744
+statistics: [('average_q1', 355.29675), ('average_q2', 355.1402), ('average_q_func1_loss', 76.09151079177856), ('average_q_func2_loss', 77.18982927322388), ('n_updates', 260501), ('average_entropy', 5.4104023), ('temperature', 1.0)]
+WARNING:absl:Failed to converge after 99 steps: err_norm=2.01061
+WARNING:absl:Failed to converge after 99 steps: err_norm=2.09137
+WARNING:absl:Failed to converge after 99 steps: err_norm=2.14681
+WARNING:absl:Failed to converge after 99 steps: err_norm=2.06209
+Episode: 542, Total Reward: -228.48950426738088
+Episode: 543, Total Reward: 1040.4816168791158
+Episode: 544, Total Reward: -228.64492765997704
+Episode: 545, Total Reward: 414.394673451316
+Episode: 546, Total Reward: -246.50373373455687
+statistics: [('average_q1', 355.0794), ('average_q2', 355.17868), ('average_q_func1_loss', 79.4541021490097), ('average_q_func2_loss', 80.25943175315857), ('n_updates', 263001), ('average_entropy', 5.3894906), ('temperature', 1.0)]
+Episode: 547, Total Reward: -192.52468649040836
+Episode: 548, Total Reward: -312.6543800163698
+Episode: 549, Total Reward: -360.2407240529547
+Episode: 550, Total Reward: -308.7554982214126
+Episode: 551, Total Reward: 159.13817422995547
+statistics: [('average_q1', 358.2778), ('average_q2', 358.31158), ('average_q_func1_loss', 119.0450085926056), ('average_q_func2_loss', 119.49611231803894), ('n_updates', 265501), ('average_entropy', 5.142781), ('temperature', 1.0)]
+Episode: 552, Total Reward: -294.53363191902014
+Episode: 553, Total Reward: 4475.469829675667
+Episode: 554, Total Reward: -291.5692394231348
+Episode: 555, Total Reward: -295.21809138316144
+Episode: 556, Total Reward: 4464.525254807014
+statistics: [('average_q1', 354.84512), ('average_q2', 354.96295), ('average_q_func1_loss', 111.05965189933777), ('average_q_func2_loss', 109.62934338092803), ('n_updates', 268001), ('average_entropy', 5.355795), ('temperature', 1.0)]
+Episode: 557, Total Reward: -309.3326484027833
+Episode: 558, Total Reward: -322.1383596953046
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.131485
+Episode: 559, Total Reward: -227.9359408353757
+Episode: 560, Total Reward: 960.8562988713624
+Episode: 561, Total Reward: -354.43792081907253
+statistics: [('average_q1', 355.6653), ('average_q2', 355.53424), ('average_q_func1_loss', 112.02218822479249), ('average_q_func2_loss', 110.89110865592957), ('n_updates', 270501), ('average_entropy', 5.3667836), ('temperature', 1.0)]
+Episode: 562, Total Reward: -286.7227299777666
+Episode: 563, Total Reward: 1275.4857289426807
+Episode: 564, Total Reward: -249.6633838765427
+Episode: 565, Total Reward: -215.96885037973888
+Episode: 566, Total Reward: -324.4897296981995
+statistics: [('average_q1', 350.86743), ('average_q2', 350.6826), ('average_q_func1_loss', 132.46295259475707), ('average_q_func2_loss', 131.50023664474486), ('n_updates', 273001), ('average_entropy', 5.1795015), ('temperature', 1.0)]
+Episode: 567, Total Reward: -207.28235873105444
+Episode: 568, Total Reward: -235.5066587947223
+Episode: 569, Total Reward: 60.10799018017781
+Episode: 570, Total Reward: -294.26727126042783
+Episode: 571, Total Reward: 538.1144848530117
+statistics: [('average_q1', 352.34012), ('average_q2', 352.41562), ('average_q_func1_loss', 186.48409352779387), ('average_q_func2_loss', 187.92625506401063), ('n_updates', 275501), ('average_entropy', 5.1455564), ('temperature', 1.0)]
+Episode: 572, Total Reward: 522.3811455493835
+Episode: 573, Total Reward: -379.4938872752294
+Episode: 574, Total Reward: -228.03449634303013
+Episode: 575, Total Reward: -275.8664251692961
+Episode: 576, Total Reward: 2228.4459161144096
+statistics: [('average_q1', 353.83304), ('average_q2', 353.66968), ('average_q_func1_loss', 137.62498257160186), ('average_q_func2_loss', 136.75104348659517), ('n_updates', 278001), ('average_entropy', 5.3065066), ('temperature', 1.0)]
+Episode: 577, Total Reward: -373.03178730714245
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.0883107
+Episode: 578, Total Reward: -310.4430464225035
+Episode: 579, Total Reward: 803.1900828848762
+Episode: 580, Total Reward: -454.7436421842406
+Episode: 581, Total Reward: -306.8806877370657
+statistics: [('average_q1', 355.50116), ('average_q2', 355.55957), ('average_q_func1_loss', 113.83545219898224), ('average_q_func2_loss', 114.06480864048004), ('n_updates', 280501), ('average_entropy', 5.375255), ('temperature', 1.0)]
+Episode: 582, Total Reward: -254.25936847597282
+Episode: 583, Total Reward: -228.9275026854426
+Episode: 584, Total Reward: 2602.227409951328
+Episode: 585, Total Reward: -355.85078829970575
+Episode: 586, Total Reward: -412.5541215725053
+statistics: [('average_q1', 362.06677), ('average_q2', 362.06693), ('average_q_func1_loss', 130.62070706367493), ('average_q_func2_loss', 131.07728346824646), ('n_updates', 283001), ('average_entropy', 5.302113), ('temperature', 1.0)]
+Episode: 587, Total Reward: -299.2881077979482
+Episode: 588, Total Reward: 114.22247256248819
+Episode: 589, Total Reward: 231.56819326993448
+Episode: 590, Total Reward: -260.5873871665481
+Episode: 591, Total Reward: -342.84337036466127
+statistics: [('average_q1', 361.18732), ('average_q2', 361.15005), ('average_q_func1_loss', 176.00062818050384), ('average_q_func2_loss', 177.47928937911988), ('n_updates', 285501), ('average_entropy', 5.272659), ('temperature', 1.0)]
+Episode: 592, Total Reward: -295.47418861938814
+Episode: 593, Total Reward: -409.40857735504306
+Episode: 594, Total Reward: -201.53059144009558
+Episode: 595, Total Reward: 607.1488753755667
+Episode: 596, Total Reward: -296.6586006089998
+statistics: [('average_q1', 361.81894), ('average_q2', 361.82394), ('average_q_func1_loss', 112.25776520252228), ('average_q_func2_loss', 112.92326755523682), ('n_updates', 288001), ('average_entropy', 5.3360467), ('temperature', 1.0)]
+Episode: 597, Total Reward: -449.1079676766459
+Episode: 598, Total Reward: 857.1061818345813
+Episode: 599, Total Reward: 560.930404717067
+Episode: 600, Total Reward: -280.41841481216187
+Episode: 601, Total Reward: -303.78150063886625
+statistics: [('average_q1', 366.3172), ('average_q2', 366.366), ('average_q_func1_loss', 165.15370687007905), ('average_q_func2_loss', 166.47906172275543), ('n_updates', 290501), ('average_entropy', 5.279578), ('temperature', 1.0)]
+Episode: 602, Total Reward: 2196.045420687503
+Episode: 603, Total Reward: -201.5751914983178
+Episode: 604, Total Reward: -178.2238075390902
+Episode: 605, Total Reward: -221.4139295571442
+Episode: 606, Total Reward: -834.6764614585808
+statistics: [('average_q1', 365.7935), ('average_q2', 365.7017), ('average_q_func1_loss', 71.96948869943618), ('average_q_func2_loss', 70.77704185009003), ('n_updates', 293001), ('average_entropy', 5.3696346), ('temperature', 1.0)]
+Episode: 607, Total Reward: 2235.8171357572705
+Episode: 608, Total Reward: 253.53548555225694
+Episode: 609, Total Reward: -350.88920363398444
+Episode: 610, Total Reward: 347.84901682995013
+Episode: 611, Total Reward: -462.3093688055277
+statistics: [('average_q1', 370.63937), ('average_q2', 370.8243), ('average_q_func1_loss', 164.56900594711303), ('average_q_func2_loss', 166.12277115821837), ('n_updates', 295501), ('average_entropy', 5.189182), ('temperature', 1.0)]
+Episode: 612, Total Reward: -370.7458863573676
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.725478
+Episode: 613, Total Reward: -290.89160859786574
+Episode: 614, Total Reward: -197.82844285577178
+Episode: 615, Total Reward: -212.01872747704567
+WARNING:absl:Failed to converge after 99 steps: err_norm=2.42226
+Episode: 616, Total Reward: -376.8635003930726
+statistics: [('average_q1', 359.60117), ('average_q2', 359.76782), ('average_q_func1_loss', 117.6262437915802), ('average_q_func2_loss', 118.4480345582962), ('n_updates', 298001), ('average_entropy', 5.205671), ('temperature', 1.0)]
+Episode: 617, Total Reward: -497.42894707130205
+Episode: 618, Total Reward: -251.18419370417155
+Episode: 619, Total Reward: 420.330175346752
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.269086
+Episode: 620, Total Reward: 523.3185570131429
+Episode: 621, Total Reward: -406.2615526276145
+statistics: [('average_q1', 361.51364), ('average_q2', 361.84586), ('average_q_func1_loss', 180.60477707862853), ('average_q_func2_loss', 183.02786149978638), ('n_updates', 300501), ('average_entropy', 5.2666965), ('temperature', 1.0)]
+Episode: 622, Total Reward: -381.74007828065214
+Episode: 623, Total Reward: -352.7231355523762
+WARNING:absl:Failed to converge after 99 steps: err_norm=2.25865
+WARNING:absl:Failed to converge after 99 steps: err_norm=2.30269
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.0278602
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.0204748
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.0753249
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.0204788
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.178009
+WARNING:absl:Failed to converge after 99 steps: err_norm=2.25865
+Episode: 624, Total Reward: -238.3408541122449
+Episode: 625, Total Reward: -225.42571111510784
+Episode: 626, Total Reward: -243.88379399182182
+statistics: [('average_q1', 363.4251), ('average_q2', 363.49173), ('average_q_func1_loss', 125.54245316505433), ('average_q_func2_loss', 126.44954978942872), ('n_updates', 303001), ('average_entropy', 5.2815313), ('temperature', 1.0)]
+Episode: 627, Total Reward: -344.9818653775673
+Episode: 628, Total Reward: -311.45455067402963
+Episode: 629, Total Reward: -431.9567892152015
+Episode: 630, Total Reward: -274.30654492886015
+Episode: 631, Total Reward: 708.929387654659
+statistics: [('average_q1', 363.22516), ('average_q2', 363.2187), ('average_q_func1_loss', 158.0258606863022), ('average_q_func2_loss', 157.98850657939911), ('n_updates', 305501), ('average_entropy', 5.2834435), ('temperature', 1.0)]
+Episode: 632, Total Reward: 948.5426143362058
+Episode: 633, Total Reward: -267.9565507473588
+Episode: 634, Total Reward: 329.31517660435554
+Episode: 635, Total Reward: -351.95035113087465
+Episode: 636, Total Reward: -408.02411414558134
+statistics: [('average_q1', 365.16595), ('average_q2', 365.02557), ('average_q_func1_loss', 185.0363954734802), ('average_q_func2_loss', 184.90427385807038), ('n_updates', 308001), ('average_entropy', 5.0846553), ('temperature', 1.0)]
+Episode: 637, Total Reward: -336.3922094216409
+Episode: 638, Total Reward: -202.04519010819445
+Episode: 639, Total Reward: -405.7583796456081
+Episode: 640, Total Reward: -328.8512137806452
+Episode: 641, Total Reward: -284.9063013825742
+statistics: [('average_q1', 363.72614), ('average_q2', 363.98495), ('average_q_func1_loss', 108.97111584186554), ('average_q_func2_loss', 108.86101835250855), ('n_updates', 310501), ('average_entropy', 5.2195907), ('temperature', 1.0)]
+Episode: 642, Total Reward: -302.3608341697926
+Episode: 643, Total Reward: -368.71360937007097
+Episode: 644, Total Reward: -233.0067455593938
+Episode: 645, Total Reward: -251.1814000715651
+Episode: 646, Total Reward: 70.30929551415075
+statistics: [('average_q1', 366.6312), ('average_q2', 366.6171), ('average_q_func1_loss', 145.42335235118867), ('average_q_func2_loss', 144.49437004089356), ('n_updates', 313001), ('average_entropy', 5.4628534), ('temperature', 1.0)]
+Episode: 647, Total Reward: 2242.218807562123
+Episode: 648, Total Reward: -495.6645299945106
+Episode: 649, Total Reward: -263.81846414904857
+Episode: 650, Total Reward: -345.8683526297351
+Episode: 651, Total Reward: -324.0807031302221
+statistics: [('average_q1', 367.11044), ('average_q2', 366.66275), ('average_q_func1_loss', 182.59837212562562), ('average_q_func2_loss', 183.8045398044586), ('n_updates', 315501), ('average_entropy', 5.3016005), ('temperature', 1.0)]
+Episode: 652, Total Reward: -353.28600733788306
+Episode: 653, Total Reward: -468.5098556805487
+Episode: 654, Total Reward: -397.46915516920706
+Episode: 655, Total Reward: -215.42979625564303
+Episode: 656, Total Reward: -394.02546807394435
+statistics: [('average_q1', 368.67178), ('average_q2', 368.7885), ('average_q_func1_loss', 118.95320993423462), ('average_q_func2_loss', 118.22879127025604), ('n_updates', 318001), ('average_entropy', 5.477205), ('temperature', 1.0)]
+Episode: 657, Total Reward: -347.42361770058073
+Episode: 658, Total Reward: -252.55979158341228
+Episode: 659, Total Reward: -323.2169341389309
+Episode: 660, Total Reward: 2010.5525290948563
+Episode: 661, Total Reward: -450.2311535395594
+statistics: [('average_q1', 367.2985), ('average_q2', 367.17313), ('average_q_func1_loss', 158.05163277626036), ('average_q_func2_loss', 158.995808467865), ('n_updates', 320501), ('average_entropy', 5.3031306), ('temperature', 1.0)]
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.368955
+Episode: 662, Total Reward: -229.46698765221382
+Episode: 663, Total Reward: -368.79796508644114
+Episode: 664, Total Reward: -280.65902780059287
+Episode: 665, Total Reward: -292.60187786317647
+Episode: 666, Total Reward: -106.0986427209471
+statistics: [('average_q1', 371.5312), ('average_q2', 371.53525), ('average_q_func1_loss', 161.76392080783845), ('average_q_func2_loss', 160.99575342655183), ('n_updates', 323001), ('average_entropy', 5.28659), ('temperature', 1.0)]
+Episode: 667, Total Reward: 197.51561352099645
+Episode: 668, Total Reward: -224.29132313876147
+Episode: 669, Total Reward: -292.87037025529526
+Episode: 670, Total Reward: -311.9584636717588
+Episode: 671, Total Reward: -607.4668125726379
+statistics: [('average_q1', 365.93225), ('average_q2', 365.83105), ('average_q_func1_loss', 123.99910604000091), ('average_q_func2_loss', 122.54799936294556), ('n_updates', 325501), ('average_entropy', 5.3588223), ('temperature', 1.0)]
+Episode: 672, Total Reward: -256.8859886794024
+Episode: 673, Total Reward: -379.754406660333
+Episode: 674, Total Reward: -209.22612167649055
+Episode: 675, Total Reward: -199.56626850891104
+Episode: 676, Total Reward: -232.00868931555874
+statistics: [('average_q1', 366.0897), ('average_q2', 365.9795), ('average_q_func1_loss', 141.14035826683045), ('average_q_func2_loss', 140.9142953300476), ('n_updates', 328001), ('average_entropy', 5.1596713), ('temperature', 1.0)]
+Episode: 677, Total Reward: 1502.0757936534526
+Episode: 678, Total Reward: -452.35745026213914
+Episode: 679, Total Reward: -341.4869027924848
+Episode: 680, Total Reward: -333.03499634196527
+Episode: 681, Total Reward: -403.7226742848321
+statistics: [('average_q1', 362.86368), ('average_q2', 362.79163), ('average_q_func1_loss', 135.33039608478546), ('average_q_func2_loss', 134.3395250940323), ('n_updates', 330501), ('average_entropy', 5.1688976), ('temperature', 1.0)]
+Episode: 682, Total Reward: -204.8316619264693
+Episode: 683, Total Reward: -309.6452396321601
+Episode: 684, Total Reward: -409.7934997548785
+Episode: 685, Total Reward: -200.8184295949449
+Episode: 686, Total Reward: -287.4386199591859
+statistics: [('average_q1', 367.6364), ('average_q2', 367.39548), ('average_q_func1_loss', 232.52967088699342), ('average_q_func2_loss', 233.88524771690368), ('n_updates', 333001), ('average_entropy', 5.144588), ('temperature', 1.0)]
+Episode: 687, Total Reward: -288.4672229195489
+Episode: 688, Total Reward: -234.8229912585861
+Episode: 689, Total Reward: -415.3331825823804
+Episode: 690, Total Reward: -484.5405918410172
+Episode: 691, Total Reward: -167.150549979046
+statistics: [('average_q1', 373.63364), ('average_q2', 373.78107), ('average_q_func1_loss', 135.78906957149505), ('average_q_func2_loss', 136.76843916893006), ('n_updates', 335501), ('average_entropy', 5.299252), ('temperature', 1.0)]
+Episode: 692, Total Reward: -225.02249058042855
+Episode: 693, Total Reward: -578.3557736006507
+Episode: 694, Total Reward: -284.36161345934056
+Episode: 695, Total Reward: -303.87390849608676
+Episode: 696, Total Reward: 991.7551634185919
+statistics: [('average_q1', 366.81726), ('average_q2', 366.9192), ('average_q_func1_loss', 115.75895483970642), ('average_q_func2_loss', 116.51583209037781), ('n_updates', 338001), ('average_entropy', 5.3038406), ('temperature', 1.0)]
+Episode: 697, Total Reward: -438.94032973593283
+Episode: 698, Total Reward: -206.11294748419076
+Episode: 699, Total Reward: 1549.2870610867897
+Episode: 700, Total Reward: -457.8650687491156
+Episode: 701, Total Reward: -371.66632089801885
+statistics: [('average_q1', 366.40875), ('average_q2', 366.51724), ('average_q_func1_loss', 85.45318799972534), ('average_q_func2_loss', 85.73995314121247), ('n_updates', 340501), ('average_entropy', 5.43908), ('temperature', 1.0)]
+WARNING:absl:Failed to converge after 99 steps: err_norm=2.17482
+Episode: 702, Total Reward: -439.25914967906033
+Episode: 703, Total Reward: -325.83203799182627
+Episode: 704, Total Reward: -324.9817555627697
+Episode: 705, Total Reward: -247.06022830549264
+Episode: 706, Total Reward: -395.8848223505784
+statistics: [('average_q1', 373.254), ('average_q2', 373.4786), ('average_q_func1_loss', 135.75860297203064), ('average_q_func2_loss', 134.28215023040772), ('n_updates', 343001), ('average_entropy', 5.432432), ('temperature', 1.0)]
+Episode: 707, Total Reward: -94.31351303299303
+Episode: 708, Total Reward: -362.29935784056863
+Episode: 709, Total Reward: -182.85273937029314
+Episode: 710, Total Reward: -480.4617204720631
+Episode: 711, Total Reward: -235.44247461650266
+statistics: [('average_q1', 369.04755), ('average_q2', 368.88806), ('average_q_func1_loss', 167.39574085235597), ('average_q_func2_loss', 166.9015177154541), ('n_updates', 345501), ('average_entropy', 5.2989345), ('temperature', 1.0)]
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.117688
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.117466
+Episode: 712, Total Reward: -488.5359368236075
+Episode: 713, Total Reward: -270.213494767793
+Episode: 714, Total Reward: -359.330483272087
+Episode: 715, Total Reward: -217.31193473827935
+Episode: 716, Total Reward: -269.30127016614995
+statistics: [('average_q1', 374.80038), ('average_q2', 374.9796), ('average_q_func1_loss', 104.75976633548737), ('average_q_func2_loss', 103.37753818511963), ('n_updates', 348001), ('average_entropy', 5.412746), ('temperature', 1.0)]
+Episode: 717, Total Reward: 177.24351190457983
+Episode: 718, Total Reward: -239.15273030737262
+Episode: 719, Total Reward: -306.15460069612504
+Episode: 720, Total Reward: -317.5050859872987
+Episode: 721, Total Reward: 6546.18093813728
+statistics: [('average_q1', 369.74057), ('average_q2', 369.78714), ('average_q_func1_loss', 100.69472287654877), ('average_q_func2_loss', 100.80237648010254), ('n_updates', 350501), ('average_entropy', 5.404116), ('temperature', 1.0)]
+Episode: 722, Total Reward: 4076.4391768707223
+Episode: 723, Total Reward: -223.57300232834288
+Episode: 724, Total Reward: 235.31691599712735
+Episode: 725, Total Reward: -264.91655662732325
+Episode: 726, Total Reward: 2463.5457758290963
+statistics: [('average_q1', 367.0639), ('average_q2', 366.8983), ('average_q_func1_loss', 135.7145031452179), ('average_q_func2_loss', 135.45609208106995), ('n_updates', 353001), ('average_entropy', 5.2556963), ('temperature', 1.0)]
+Episode: 727, Total Reward: -216.7627133929699
+Episode: 728, Total Reward: -554.1080871450425
+Episode: 729, Total Reward: -247.31922845477783
+Episode: 730, Total Reward: -403.74033666302546
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.117357
+Episode: 731, Total Reward: -213.32818071875323
+statistics: [('average_q1', 370.19516), ('average_q2', 370.1323), ('average_q_func1_loss', 137.70351308345795), ('average_q_func2_loss', 138.0899490213394), ('n_updates', 355501), ('average_entropy', 5.430337), ('temperature', 1.0)]
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.685939
+Episode: 732, Total Reward: -429.55755803234666
+Episode: 733, Total Reward: -267.72611829835466
+Episode: 734, Total Reward: -343.4286239470933
+Episode: 735, Total Reward: -215.23062540834752
+Episode: 736, Total Reward: -503.2273552759219
+statistics: [('average_q1', 373.6713), ('average_q2', 373.41986), ('average_q_func1_loss', 151.84127710819246), ('average_q_func2_loss', 151.55554667949676), ('n_updates', 358001), ('average_entropy', 5.347004), ('temperature', 1.0)]
+Episode: 737, Total Reward: -322.63706036156793
+Episode: 738, Total Reward: -250.06857550520786
+Episode: 739, Total Reward: -516.4527223810876
+Episode: 740, Total Reward: -365.346751222027
+Episode: 741, Total Reward: -178.96527092346403
+statistics: [('average_q1', 374.3761), ('average_q2', 374.32047), ('average_q_func1_loss', 209.2188937997818), ('average_q_func2_loss', 210.65456779003142), ('n_updates', 360501), ('average_entropy', 5.321781), ('temperature', 1.0)]
+Episode: 742, Total Reward: -280.1909861573543
+Episode: 743, Total Reward: -347.43935781761195
+Episode: 744, Total Reward: -305.723056891628
+Episode: 745, Total Reward: -252.0174856613194
+Episode: 746, Total Reward: -395.90797225567474
+statistics: [('average_q1', 374.46576), ('average_q2', 374.7972), ('average_q_func1_loss', 141.9986658334732), ('average_q_func2_loss', 141.30712535858154), ('n_updates', 363001), ('average_entropy', 5.4489665), ('temperature', 1.0)]
+Episode: 747, Total Reward: -490.42068449734364
+Episode: 748, Total Reward: -267.9027284804089
+Episode: 749, Total Reward: -58.136567856791245
+Episode: 750, Total Reward: -306.3950041529144
+Episode: 751, Total Reward: -519.9426600591856
+statistics: [('average_q1', 374.92722), ('average_q2', 374.80978), ('average_q_func1_loss', 147.47508621692657), ('average_q_func2_loss', 147.7708925819397), ('n_updates', 365501), ('average_entropy', 5.435466), ('temperature', 1.0)]
+Episode: 752, Total Reward: -193.37974228312757
+Episode: 753, Total Reward: -182.3760327351089
+Episode: 754, Total Reward: -322.5935675306205
+Episode: 755, Total Reward: -334.98894999763667
+Episode: 756, Total Reward: -258.54875096882006
+statistics: [('average_q1', 375.41916), ('average_q2', 375.499), ('average_q_func1_loss', 142.774239525795), ('average_q_func2_loss', 143.23705759048462), ('n_updates', 368001), ('average_entropy', 5.269655), ('temperature', 1.0)]
+Episode: 757, Total Reward: -359.49625942104456
+Episode: 758, Total Reward: -271.71827324558745
+Episode: 759, Total Reward: -103.72872861319964
+Episode: 760, Total Reward: -196.71323974623775
+Episode: 761, Total Reward: -80.72297507133196
+statistics: [('average_q1', 377.9697), ('average_q2', 377.92346), ('average_q_func1_loss', 189.85419385910035), ('average_q_func2_loss', 189.1534229326248), ('n_updates', 370501), ('average_entropy', 5.2414904), ('temperature', 1.0)]
+Episode: 762, Total Reward: -152.27221429723022
+Episode: 763, Total Reward: -358.08599594687075
+Episode: 764, Total Reward: -179.7831872132863
+Episode: 765, Total Reward: -181.62248502038247
+Episode: 766, Total Reward: -383.0273606371276
+statistics: [('average_q1', 372.00183), ('average_q2', 371.8562), ('average_q_func1_loss', 102.64237284183503), ('average_q_func2_loss', 103.333080534935), ('n_updates', 373001), ('average_entropy', 5.2190146), ('temperature', 1.0)]
+Episode: 767, Total Reward: -243.01667912859756
+Episode: 768, Total Reward: -253.13764178077278
+Episode: 769, Total Reward: -518.8744696358707
+Episode: 770, Total Reward: 587.0097006953723
+Episode: 771, Total Reward: -251.49543949988106
+statistics: [('average_q1', 373.3111), ('average_q2', 373.5876), ('average_q_func1_loss', 131.90238474845887), ('average_q_func2_loss', 130.74580202579497), ('n_updates', 375501), ('average_entropy', 5.3723006), ('temperature', 1.0)]
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.129958
+Episode: 772, Total Reward: -206.94646785498958
+Episode: 773, Total Reward: 257.1818004380426
+WARNING:absl:Failed to converge after 99 steps: err_norm=1.9278
+Episode: 774, Total Reward: -316.21991813970266
+Episode: 775, Total Reward: -229.67557000782347
+Episode: 776, Total Reward: -330.7077992577724
+statistics: [('average_q1', 370.6555), ('average_q2', 370.63666), ('average_q_func1_loss', 140.32855028152466), ('average_q_func2_loss', 140.2168700361252), ('n_updates', 378001), ('average_entropy', 5.386083), ('temperature', 1.0)]
+Episode: 777, Total Reward: 1292.9536758483348
+Episode: 778, Total Reward: -430.3829656348493
+Episode: 779, Total Reward: -236.7802207623283
+Episode: 780, Total Reward: -426.3476578492153
+Episode: 781, Total Reward: -226.82209117134886
+statistics: [('average_q1', 373.37524), ('average_q2', 373.31415), ('average_q_func1_loss', 109.62276679992675), ('average_q_func2_loss', 109.06065476417541), ('n_updates', 380501), ('average_entropy', 5.444006), ('temperature', 1.0)]
+Episode: 782, Total Reward: 2811.1002031428325
+Episode: 783, Total Reward: -368.0196557477167
+Episode: 784, Total Reward: -367.5798379682093
+Episode: 785, Total Reward: -252.33173993567888
+Episode: 786, Total Reward: -518.697320894012
+statistics: [('average_q1', 375.02133), ('average_q2', 375.1258), ('average_q_func1_loss', 123.1275656080246), ('average_q_func2_loss', 125.5606290769577), ('n_updates', 383001), ('average_entropy', 5.3676767), ('temperature', 1.0)]
+Episode: 787, Total Reward: -227.86709844556216
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.176129
+Episode: 788, Total Reward: -244.14104004889344
+Episode: 789, Total Reward: 1239.3346885152987
+Episode: 790, Total Reward: 1077.649725618363
+Episode: 791, Total Reward: -210.48117263953583
+statistics: [('average_q1', 381.6426), ('average_q2', 381.68826), ('average_q_func1_loss', 129.65262355804444), ('average_q_func2_loss', 128.4914849615097), ('n_updates', 385501), ('average_entropy', 5.429871), ('temperature', 1.0)]
+Episode: 792, Total Reward: -185.43149690726116
+Episode: 793, Total Reward: -355.7148386383001
+Episode: 794, Total Reward: -229.21880591972683
+Episode: 795, Total Reward: -402.6328534629747
+Episode: 796, Total Reward: 3714.7634049086882
+statistics: [('average_q1', 383.61362), ('average_q2', 383.74136), ('average_q_func1_loss', 99.61920637130737), ('average_q_func2_loss', 99.3541305398941), ('n_updates', 388001), ('average_entropy', 5.447084), ('temperature', 1.0)]
+Episode: 797, Total Reward: -262.94391629524694
+Episode: 798, Total Reward: -274.1206196090043
+Episode: 799, Total Reward: -454.5121002281199
+Episode: 800, Total Reward: -347.63245800748365
+Episode: 801, Total Reward: -480.7984999158149
+statistics: [('average_q1', 369.81018), ('average_q2', 369.86887), ('average_q_func1_loss', 110.33610260486603), ('average_q_func2_loss', 110.8505188703537), ('n_updates', 390501), ('average_entropy', 5.427357), ('temperature', 1.0)]
+Episode: 802, Total Reward: -378.85420336059286
+Episode: 803, Total Reward: -265.7921123815601
+Episode: 804, Total Reward: -316.4055383005199
+Episode: 805, Total Reward: -287.97112758390585
+Episode: 806, Total Reward: -405.95396836443194
+statistics: [('average_q1', 378.2631), ('average_q2', 378.2675), ('average_q_func1_loss', 126.85191705703735), ('average_q_func2_loss', 128.29739116668702), ('n_updates', 393001), ('average_entropy', 5.42425), ('temperature', 1.0)]
+Episode: 807, Total Reward: -279.7270863734093
+Episode: 808, Total Reward: -323.9411693029178
+Episode: 809, Total Reward: 406.84098226125633
+Episode: 810, Total Reward: -332.29980380748526
+Episode: 811, Total Reward: -462.26835700694636
+statistics: [('average_q1', 382.303), ('average_q2', 381.94913), ('average_q_func1_loss', 97.01076972484589), ('average_q_func2_loss', 99.27518581867218), ('n_updates', 395501), ('average_entropy', 5.5070467), ('temperature', 1.0)]
+Episode: 812, Total Reward: -428.5515596595061
+Episode: 813, Total Reward: -198.82990515070196
+Episode: 814, Total Reward: -229.7997034990221
+Episode: 815, Total Reward: 2868.3131105938533
+Episode: 816, Total Reward: -312.1691596403034
+statistics: [('average_q1', 376.4868), ('average_q2', 376.65408), ('average_q_func1_loss', 135.112965593338), ('average_q_func2_loss', 134.79052432060243), ('n_updates', 398001), ('average_entropy', 5.343414), ('temperature', 1.0)]
+Episode: 817, Total Reward: -372.7361093287109
+Episode: 818, Total Reward: -319.08014571564684
+Episode: 819, Total Reward: 9476.06240188759
+Episode: 820, Total Reward: -316.4557685813993
+Episode: 821, Total Reward: -314.3072792311222
+statistics: [('average_q1', 376.73224), ('average_q2', 376.49765), ('average_q_func1_loss', 169.50300862312318), ('average_q_func2_loss', 169.46903800010682), ('n_updates', 400501), ('average_entropy', 5.259675), ('temperature', 1.0)]
+Episode: 822, Total Reward: -349.00849708236524
+Episode: 823, Total Reward: -344.203931495018
+Episode: 824, Total Reward: -289.92131284413597
+Episode: 825, Total Reward: -324.12310356838015
+Episode: 826, Total Reward: -258.35620887769363
+statistics: [('average_q1', 377.773), ('average_q2', 377.3735), ('average_q_func1_loss', 170.446759724617), ('average_q_func2_loss', 171.21224722862243), ('n_updates', 403001), ('average_entropy', 5.4558725), ('temperature', 1.0)]
+Episode: 827, Total Reward: -301.2214243061969
+Episode: 828, Total Reward: -275.81789399999354
+Episode: 829, Total Reward: -315.4523521664068
+Episode: 830, Total Reward: -267.38736508751913
+Episode: 831, Total Reward: -458.39350616879153
+statistics: [('average_q1', 372.56824), ('average_q2', 372.2887), ('average_q_func1_loss', 115.47717103004456), ('average_q_func2_loss', 117.24662821769715), ('n_updates', 405501), ('average_entropy', 5.4684687), ('temperature', 1.0)]
+Episode: 832, Total Reward: -340.8033525224423
+Episode: 833, Total Reward: -269.5868700665189
+Episode: 834, Total Reward: -244.31032876199575
+Episode: 835, Total Reward: -391.52166403849094
+Episode: 836, Total Reward: -283.6201512925642
+statistics: [('average_q1', 382.58273), ('average_q2', 382.76193), ('average_q_func1_loss', 143.2918893623352), ('average_q_func2_loss', 143.64340061187744), ('n_updates', 408001), ('average_entropy', 5.3155694), ('temperature', 1.0)]
+Episode: 837, Total Reward: -275.8998631418683
+Episode: 838, Total Reward: -295.5775224336226
+Episode: 839, Total Reward: -291.4231745902867
+Episode: 840, Total Reward: -333.98224144484107
+Episode: 841, Total Reward: -494.29057101702284
+statistics: [('average_q1', 376.04758), ('average_q2', 376.03897), ('average_q_func1_loss', 127.42501994609833), ('average_q_func2_loss', 129.32564661502838), ('n_updates', 410501), ('average_entropy', 5.3996406), ('temperature', 1.0)]
+Episode: 842, Total Reward: -213.49346715437048
+Episode: 843, Total Reward: -317.1672463545689
+Episode: 844, Total Reward: 923.6772976130811
+Episode: 845, Total Reward: 485.45622733901774
+Episode: 846, Total Reward: -419.5645962086536
+statistics: [('average_q1', 376.3549), ('average_q2', 376.59393), ('average_q_func1_loss', 93.37142330646515), ('average_q_func2_loss', 94.10035717010499), ('n_updates', 413001), ('average_entropy', 5.5254073), ('temperature', 1.0)]
+Episode: 847, Total Reward: -303.3592922461279
+Episode: 848, Total Reward: -489.0666059354211
+Episode: 849, Total Reward: -221.9594909852388
+Episode: 850, Total Reward: -419.2809365526935
+Episode: 851, Total Reward: -353.1895056514794
+statistics: [('average_q1', 378.16357), ('average_q2', 378.23328), ('average_q_func1_loss', 183.91194507598877), ('average_q_func2_loss', 183.63196885108948), ('n_updates', 415501), ('average_entropy', 5.3862166), ('temperature', 1.0)]
+Episode: 852, Total Reward: -230.07426129925344
+Episode: 853, Total Reward: -294.96158976537146
+Episode: 854, Total Reward: -291.47609372784535
+Episode: 855, Total Reward: -224.41031418969698
+Episode: 856, Total Reward: -602.7677944663888
+statistics: [('average_q1', 378.34674), ('average_q2', 378.49167), ('average_q_func1_loss', 128.5298645877838), ('average_q_func2_loss', 128.37576535224915), ('n_updates', 418001), ('average_entropy', 5.436803), ('temperature', 1.0)]
+Episode: 857, Total Reward: -317.16554564658793
+Episode: 858, Total Reward: -204.22677847646372
+Episode: 859, Total Reward: 932.1781699187152
+Episode: 860, Total Reward: -376.08343944939946
+Episode: 861, Total Reward: -214.88893434043447
+statistics: [('average_q1', 379.30844), ('average_q2', 379.3357), ('average_q_func1_loss', 126.74896716594696), ('average_q_func2_loss', 126.67294527053834), ('n_updates', 420501), ('average_entropy', 5.4622545), ('temperature', 1.0)]
+Episode: 862, Total Reward: -283.0516075894428
+Episode: 863, Total Reward: -214.0908027043511
+Episode: 864, Total Reward: -286.8714987374332
+Episode: 865, Total Reward: -313.38403510177613
+WARNING:absl:Failed to converge after 99 steps: err_norm=2.1617
+WARNING:absl:Failed to converge after 99 steps: err_norm=2.50914
+Episode: 866, Total Reward: -311.3980887270268
+statistics: [('average_q1', 379.65854), ('average_q2', 379.7224), ('average_q_func1_loss', 164.22329718589782), ('average_q_func2_loss', 164.049197511673), ('n_updates', 423001), ('average_entropy', 5.2774243), ('temperature', 1.0)]
+Episode: 867, Total Reward: -393.77445531477696
+Episode: 868, Total Reward: -265.47054228117287
+Episode: 869, Total Reward: -365.268595200188
+Episode: 870, Total Reward: -185.43647793357752
+Episode: 871, Total Reward: -228.66946697045842
+statistics: [('average_q1', 383.10358), ('average_q2', 383.3283), ('average_q_func1_loss', 161.94657993793487), ('average_q_func2_loss', 161.48181831359864), ('n_updates', 425501), ('average_entropy', 5.4178886), ('temperature', 1.0)]
+Episode: 872, Total Reward: -396.49811154300505
+Episode: 873, Total Reward: -325.92322872963297
+Episode: 874, Total Reward: -452.0045637289715
+Episode: 875, Total Reward: -607.4583827673578
+Episode: 876, Total Reward: 3654.6871042534767
+statistics: [('average_q1', 377.45956), ('average_q2', 377.73026), ('average_q_func1_loss', 146.725233669281), ('average_q_func2_loss', 147.0062448310852), ('n_updates', 428001), ('average_entropy', 5.419456), ('temperature', 1.0)]
+Episode: 877, Total Reward: 2263.518425594317
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.265848
+Episode: 878, Total Reward: -179.733187514987
+Episode: 879, Total Reward: -208.901351066383
+Episode: 880, Total Reward: -253.2092275216988
+Episode: 881, Total Reward: 2920.9522067103935
+statistics: [('average_q1', 378.86136), ('average_q2', 379.01514), ('average_q_func1_loss', 174.638568148613), ('average_q_func2_loss', 175.37474331855773), ('n_updates', 430501), ('average_entropy', 5.408338), ('temperature', 1.0)]
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.167109
+Episode: 882, Total Reward: -527.3716098636594
+Episode: 883, Total Reward: -336.0036501438267
+Episode: 884, Total Reward: -277.7857497294537
+Episode: 885, Total Reward: -217.67731891806199
+Episode: 886, Total Reward: -243.38081891481775
+statistics: [('average_q1', 378.22363), ('average_q2', 378.3525), ('average_q_func1_loss', 150.42888910293578), ('average_q_func2_loss', 150.18154908657073), ('n_updates', 433001), ('average_entropy', 5.449632), ('temperature', 1.0)]
+Episode: 887, Total Reward: -348.4323361933459
+Episode: 888, Total Reward: -347.5110089711311
+Episode: 889, Total Reward: -376.3457640624018
+Episode: 890, Total Reward: 177.0778479294604
+Episode: 891, Total Reward: -351.18859440903566
+statistics: [('average_q1', 376.35324), ('average_q2', 376.55032), ('average_q_func1_loss', 131.01576803684236), ('average_q_func2_loss', 130.70317236423492), ('n_updates', 435501), ('average_entropy', 5.5003066), ('temperature', 1.0)]
+Episode: 892, Total Reward: -272.5469759717011
+Episode: 893, Total Reward: -286.802015883171
+Episode: 894, Total Reward: 935.7386974388694
+Episode: 895, Total Reward: -357.3321358397511
+Episode: 896, Total Reward: -220.51985830849705
+statistics: [('average_q1', 378.37524), ('average_q2', 378.27707), ('average_q_func1_loss', 163.69970317840577), ('average_q_func2_loss', 164.70927610874176), ('n_updates', 438001), ('average_entropy', 5.4861226), ('temperature', 1.0)]
+Episode: 897, Total Reward: 3440.462031237942
+Episode: 898, Total Reward: -340.86863360312014
+Episode: 899, Total Reward: -256.0755869879167
+Episode: 900, Total Reward: -336.6494283712525
+Episode: 901, Total Reward: -395.7027490182969
+statistics: [('average_q1', 374.75888), ('average_q2', 374.49905), ('average_q_func1_loss', 193.57888226509095), ('average_q_func2_loss', 192.66436614513398), ('n_updates', 440501), ('average_entropy', 5.3514924), ('temperature', 1.0)]
+Episode: 902, Total Reward: -169.10040486193324
+Episode: 903, Total Reward: -326.62760936752494
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.668992
+Episode: 904, Total Reward: -282.21293139823115
+Episode: 905, Total Reward: -217.49870823763405
+Episode: 906, Total Reward: -246.08061019457713
+statistics: [('average_q1', 376.7957), ('average_q2', 376.74075), ('average_q_func1_loss', 167.17991678237914), ('average_q_func2_loss', 167.36792185783386), ('n_updates', 443001), ('average_entropy', 5.1486945), ('temperature', 1.0)]
+Episode: 907, Total Reward: -386.49624793119636
+Episode: 908, Total Reward: -259.1152134042464
+Episode: 909, Total Reward: -281.62358264781517
+Episode: 910, Total Reward: -236.0471425592518
+Episode: 911, Total Reward: 1289.3252689359672
+statistics: [('average_q1', 378.94522), ('average_q2', 378.79898), ('average_q_func1_loss', 147.90261888980865), ('average_q_func2_loss', 149.29615877151488), ('n_updates', 445501), ('average_entropy', 5.386784), ('temperature', 1.0)]
+Episode: 912, Total Reward: -315.2597318897211
+Episode: 913, Total Reward: -259.122585304269
+Episode: 914, Total Reward: -330.91025481502527
+Episode: 915, Total Reward: -339.64719425598105
+Episode: 916, Total Reward: -567.3460443760005
+statistics: [('average_q1', 382.80566), ('average_q2', 382.7712), ('average_q_func1_loss', 137.79339684486388), ('average_q_func2_loss', 141.13078917980195), ('n_updates', 448001), ('average_entropy', 5.414543), ('temperature', 1.0)]
+Episode: 917, Total Reward: -423.726440517802
+Episode: 918, Total Reward: -478.11309507362444
+Episode: 919, Total Reward: -216.99622082304518
+Episode: 920, Total Reward: -301.8769886246567
+Episode: 921, Total Reward: -315.70370303834284
+statistics: [('average_q1', 378.59332), ('average_q2', 378.9702), ('average_q_func1_loss', 107.1606606054306), ('average_q_func2_loss', 107.23315133094788), ('n_updates', 450501), ('average_entropy', 5.525442), ('temperature', 1.0)]
+Episode: 922, Total Reward: -301.23721449402274
+Episode: 923, Total Reward: -224.21634766656638
+Episode: 924, Total Reward: -361.61270215237914
+Episode: 925, Total Reward: -444.03016294254917
+Episode: 926, Total Reward: -294.59315037259483
+statistics: [('average_q1', 377.77792), ('average_q2', 377.77322), ('average_q_func1_loss', 130.79656432151793), ('average_q_func2_loss', 131.06096660614014), ('n_updates', 453001), ('average_entropy', 5.390542), ('temperature', 1.0)]
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.186285
+Episode: 927, Total Reward: 681.0468312337484
+Episode: 928, Total Reward: -252.40417514356682
+Episode: 929, Total Reward: 2302.1712582711925
+Episode: 930, Total Reward: -414.905118120957
+Episode: 931, Total Reward: -300.07761666904526
+statistics: [('average_q1', 374.8047), ('average_q2', 375.00406), ('average_q_func1_loss', 132.98886693000793), ('average_q_func2_loss', 131.34224770545958), ('n_updates', 455501), ('average_entropy', 5.372404), ('temperature', 1.0)]
+Episode: 932, Total Reward: -177.74120262010888
+Episode: 933, Total Reward: -317.9997813739283
+Episode: 934, Total Reward: 2042.068867053698
+Episode: 935, Total Reward: -188.10767875923105
+Episode: 936, Total Reward: -208.79501732556733
+statistics: [('average_q1', 381.8891), ('average_q2', 381.3868), ('average_q_func1_loss', 163.88649399280547), ('average_q_func2_loss', 163.69503499507903), ('n_updates', 458001), ('average_entropy', 5.3555946), ('temperature', 1.0)]
+Episode: 937, Total Reward: -286.38417040448593
+Episode: 938, Total Reward: -174.7267331900283
+Episode: 939, Total Reward: -364.23082618835434
+Episode: 940, Total Reward: -158.4841103905095
+Episode: 941, Total Reward: -326.916872033903
+statistics: [('average_q1', 377.65176), ('average_q2', 377.6088), ('average_q_func1_loss', 153.0037048482895), ('average_q_func2_loss', 153.2185092830658), ('n_updates', 460501), ('average_entropy', 5.442293), ('temperature', 1.0)]
+Episode: 942, Total Reward: -258.55731275742767
+Episode: 943, Total Reward: -442.674597500853
+Episode: 944, Total Reward: 421.47147370573634
+Episode: 945, Total Reward: -282.2019819426349
+Episode: 946, Total Reward: -309.2106752369332
+statistics: [('average_q1', 378.36838), ('average_q2', 378.41895), ('average_q_func1_loss', 201.20671202659608), ('average_q_func2_loss', 202.20811643123628), ('n_updates', 463001), ('average_entropy', 5.2488484), ('temperature', 1.0)]
+Episode: 947, Total Reward: -323.8495301340702
+Episode: 948, Total Reward: -263.34821989337433
+Episode: 949, Total Reward: -337.9899757213464
+Episode: 950, Total Reward: -324.71649925719055
+Episode: 951, Total Reward: -439.82805802596295
+statistics: [('average_q1', 383.27594), ('average_q2', 383.16592), ('average_q_func1_loss', 124.86922180652618), ('average_q_func2_loss', 124.67673263549804), ('n_updates', 465501), ('average_entropy', 5.3343124), ('temperature', 1.0)]
+Episode: 952, Total Reward: -337.7058224171307
+Episode: 953, Total Reward: -159.36436066008406
+Episode: 954, Total Reward: -325.6619690138511
+Episode: 955, Total Reward: -224.57625211033292
+Episode: 956, Total Reward: -259.4510306918824
+statistics: [('average_q1', 378.74945), ('average_q2', 378.89023), ('average_q_func1_loss', 179.94939213752747), ('average_q_func2_loss', 180.10768294334412), ('n_updates', 468001), ('average_entropy', 5.3726277), ('temperature', 1.0)]
+Episode: 957, Total Reward: -260.54561582525713
+Episode: 958, Total Reward: -201.84543983178233
+WARNING:absl:Failed to converge after 99 steps: err_norm=2.28437
+Episode: 959, Total Reward: -300.05913412991987
+Episode: 960, Total Reward: -265.72782720535673
+Episode: 961, Total Reward: -128.33198278985643
+statistics: [('average_q1', 376.96967), ('average_q2', 376.7085), ('average_q_func1_loss', 86.3837804698944), ('average_q_func2_loss', 87.3013369178772), ('n_updates', 470501), ('average_entropy', 5.386493), ('temperature', 1.0)]
+Episode: 962, Total Reward: -298.2266750617491
+Episode: 963, Total Reward: 528.0370386011417
+Episode: 964, Total Reward: -290.59823201860587
+Episode: 965, Total Reward: -280.3158181198306
+Episode: 966, Total Reward: -225.10894175662492
+statistics: [('average_q1', 379.61826), ('average_q2', 379.77536), ('average_q_func1_loss', 170.1865730047226), ('average_q_func2_loss', 170.7190473985672), ('n_updates', 473001), ('average_entropy', 5.3810735), ('temperature', 1.0)]
+Episode: 967, Total Reward: -423.3981543411461
+Episode: 968, Total Reward: -254.95303221254386
+Episode: 969, Total Reward: -351.56897428953715
+Episode: 970, Total Reward: -383.3681956015244
+Episode: 971, Total Reward: -330.9981820314036
+statistics: [('average_q1', 385.7612), ('average_q2', 385.8541), ('average_q_func1_loss', 174.28461605072022), ('average_q_func2_loss', 173.87924818992616), ('n_updates', 475501), ('average_entropy', 5.243328), ('temperature', 1.0)]
+Episode: 972, Total Reward: -225.53812868589205
+Episode: 973, Total Reward: -235.6088310549065
+Episode: 974, Total Reward: -335.6458176215162
+Episode: 975, Total Reward: -307.5762547590744
+Episode: 976, Total Reward: -230.12871254446162
+statistics: [('average_q1', 381.35114), ('average_q2', 381.38837), ('average_q_func1_loss', 141.0457944059372), ('average_q_func2_loss', 139.9010909938812), ('n_updates', 478001), ('average_entropy', 5.3949814), ('temperature', 1.0)]
+Episode: 977, Total Reward: -275.64005202139634
+Episode: 978, Total Reward: 296.48369851213226
+Episode: 979, Total Reward: -492.2097412448446
+Episode: 980, Total Reward: -231.97561857366867
+Episode: 981, Total Reward: -248.0477197300906
+statistics: [('average_q1', 380.52927), ('average_q2', 380.46545), ('average_q_func1_loss', 102.57912979602814), ('average_q_func2_loss', 102.17835344791412), ('n_updates', 480501), ('average_entropy', 5.3027663), ('temperature', 1.0)]
+Episode: 982, Total Reward: -270.55874211343576
+Episode: 983, Total Reward: -346.3588271494655
+Episode: 984, Total Reward: 130.95314085512524
+WARNING:absl:Failed to converge after 99 steps: err_norm=0.25101
+Episode: 985, Total Reward: -197.64629396695238
+Episode: 986, Total Reward: 3355.653622007191
+statistics: [('average_q1', 382.0117), ('average_q2', 381.55963), ('average_q_func1_loss', 159.5261401796341), ('average_q_func2_loss', 160.10832211971282), ('n_updates', 483001), ('average_entropy', 5.545801), ('temperature', 1.0)]
+Episode: 987, Total Reward: -201.6077289836168
+Episode: 988, Total Reward: -288.8914886926121
+Episode: 989, Total Reward: 893.3081813436204
+Episode: 990, Total Reward: -226.00503919175017
+Episode: 991, Total Reward: -515.8421582904433
+statistics: [('average_q1', 382.28683), ('average_q2', 381.99786), ('average_q_func1_loss', 172.24544831752777), ('average_q_func2_loss', 171.18529241085054), ('n_updates', 485501), ('average_entropy', 5.441838), ('temperature', 1.0)]
+Episode: 992, Total Reward: -295.0951430119174
+Episode: 993, Total Reward: -321.89885226840823
+Episode: 994, Total Reward: -360.87995169684166
+Episode: 995, Total Reward: -305.7766048603506
+Episode: 996, Total Reward: -307.9820605302463
+statistics: [('average_q1', 384.1754), ('average_q2', 384.2399), ('average_q_func1_loss', 166.04499238014222), ('average_q_func2_loss', 165.54538910865784), ('n_updates', 488001), ('average_entropy', 5.3816757), ('temperature', 1.0)]
+Episode: 997, Total Reward: 2765.876985747417
+Episode: 998, Total Reward: -329.02490669438697
+ Episode: 999, Total Reward: -335.6767130817993
+Episode: 1000, Total Reward: -244.31126400400447
+
+
+
+evaluation episode: 0 R: -91.75628953104294
+evaluation episode: 1 R: -113.64565585585497
+evaluation episode: 2 R: -164.8849745183376
+evaluation episode: 3 R: -151.56346786768736
+evaluation episode: 4 R: -153.39876447153443
+evaluation episode: 5 R: -128.62690962121152
+evaluation episode: 6 R: 966.3476800840674
+evaluation episode: 7 R: -79.10527862801813
+evaluation episode: 8 R: -158.64124452300817
+evaluation episode: 9 R: -102.52835188293675
+
+
+evaluation episode: 0 R: -70.98332486951199
+evaluation episode: 1 R: -135.97462517935452
+evaluation episode: 2 R: -173.38685875512317
+evaluation episode: 3 R: -81.35712959223758
+evaluation episode: 4 R: -138.2790605496347
+evaluation episode: 5 R: -62.908863822808314
+evaluation episode: 6 R: -95.31669607524461
+evaluation episode: 7 R: 16584.82243037329
+evaluation episode: 8 R: -55.33348195684382
+evaluation episode: 9 R: -153.39556318167294
+

@@ -67,4 +67,4 @@ def get_angles(array_of_joint_angles):
     theta4 = np.arctan2(array_of_joint_angles[3][0], array_of_joint_angles[3][1])
     theta5 = np.arctan2(array_of_joint_angles[4][0], array_of_joint_angles[4][1])
     theta6 = np.arctan2(array_of_joint_angles[5][0], array_of_joint_angles[5][1])
-    return [theta1, theta2, theta3, theta4, theta5, theta6]
+    return np.array([theta1, theta2, theta3, theta4, theta5, theta6])
