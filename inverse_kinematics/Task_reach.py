@@ -39,13 +39,13 @@ _DUPLO_WORKSPACE = _ReachWorkspace(
 _SITE_WORKSPACE = _ReachWorkspace(
     target_bbox=workspaces.BoundingBox(
         lower=(-0.2, -0.2, 0.02),
-        upper=(0.2, 0.2, 0.4)),
+        upper=(1.2, 1.2, 0.4)),
     tcp_bbox=workspaces.BoundingBox(
         lower=(-0.2, -0.2, 0.02),
-        upper=(0.2, 0.2, 0.4)),
+        upper=(1.2, 1.2, 0.4)),
     arm_offset=robots.ARM_OFFSET)
 
-_TARGET_RADIUS = 0.075
+_TARGET_RADIUS = 0.1
 
 
 class Reach_task(composer.Task):
@@ -149,13 +149,24 @@ class Reach_task(composer.Task):
     # print("target_pos, ", target_pos)
     # print("hand_pos ", hand_pos)
     # print("Inside Task_reach.py file, distance = ", distance)
-    k = 2
-    return -k*distance if distance >= _TARGET_RADIUS else 100
+    k = 0.0001
+    return -k*distance if distance >= _TARGET_RADIUS else 10
     # return rewards.tolerance(
         # distance, bounds=(0, _TARGET_RADIUS), margin=_TARGET_RADIUS)
 
+  def should_terminate_episode(self, physics):
+    """Determines whether the episode should terminate given the physics state."""
+    hand_pos = physics.bind(self._hand.tool_center_point).xpos
+    target_pos = physics.bind(self._target).xpos
+    distance = np.linalg.norm(hand_pos - target_pos)
+    if distance <= _TARGET_RADIUS:
+      return True
+    else:
+      return False
+
   def initialize_episode(self, physics, random_state):
     self._hand.set_grasp(physics, close_factors=random_state.uniform())
+    # self._hand.set_grasp(physics, close_factors=1.0)
     self._tcp_initializer(physics, random_state)
     if self._prop:
       self._prop_placer(physics, random_state)

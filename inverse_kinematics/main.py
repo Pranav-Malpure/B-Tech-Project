@@ -75,18 +75,11 @@ import moviepy.editor as mp
 
 # from dmc
 
-duration = 20    # (seconds)
+duration = 500    # (seconds)
 framerate = 30  # (Hz)
 
 import mujoco.viewer as gui_viewer
 from Task_reach import Reach_task, reach_site_vision, reach_site_features
-#incomoplete task
-class inverse_kinematics_task(Task):
-    def __init__(self):
-        pass
-    
-    def root_entity(self):
-        pass
 
 
 def save_video(frames, output_path, framerate=30):
@@ -284,7 +277,7 @@ arena = arenas.Standard()
 task_object = reach_site_features()
 # task_object = reach_site_vision()
 
-env = _composer.Environment(task = task_object, time_limit = duration)
+env = _composer.Environment(task = task_object, time_limit = duration, random_state=1)
 action_dim = env.action_spec().shape[0]
 action_spec = env.action_spec()
 state_dim = np.size(env.random_state.uniform(
@@ -332,7 +325,6 @@ agent = SoftActorCritic(
     gamma=0.99,
     # phi = lambda x: x.astype('float32', copy=False), 
     gpu=-1,
-
 )
 
 experiment = copy.deepcopy(torch.tensor(obs[3]['jaco_arm/joints_pos']))
@@ -346,9 +338,10 @@ experiment = copy.deepcopy(torch.tensor(obs[3]['jaco_arm/joints_pos']))
 # agent.load('trained_agent')
 
 
+reward_plot = []
+episode_plot = []
 
-
-for episode in range(3000):
+for episode in range(10):
     obs = env.reset()
     # obs = env.step([0, 0, 0, 0, 0, 0, 1, 1, 1])
     obs_ = obs[3]
@@ -362,11 +355,13 @@ for episode in range(3000):
     R = 0 
     t = 0  
     counter = 0
-    max_episode_len = 200
+    max_episode_len = float('inf')
     while True:
         # print("While loop counter: ",counter)
 
         obs_pos = torch.tensor(get_angles(obs_['jaco_arm/joints_pos'][0]), dtype=torch.float32)
+        # obs_pos = torch.from_numpy(np.array(get_angles(obs_['jaco_arm/joints_pos'][0])))
+        # obs_pos = torch.tensor(obs_pos, dtype=torch.float32)
         # obs_pos = get_angles(obs_['jaco_arm/joints_pos'][0])
         # obs_pos = np.array(get_angles(obs_['jaco_arm/joints_pos'][0]))
         # print("obs_pos inside the while loop", obs_pos.shape)
@@ -389,10 +384,12 @@ for episode in range(3000):
         
         # next_obs = time_step.observation['front_close']
         obs_ = time_step[3]
-        reset = t > max_episode_len
-        # reset = False
+        # reset = t > max_episode_len
+        # reset = False 
         obs_pos = torch.tensor(get_angles(obs_['jaco_arm/joints_pos'][0]), dtype=torch.float32)
-        agent.observe(obs_pos, reward, done, reset)
+        # obs_pos = torch.from_numpy(np.array(get_angles(obs_['jaco_arm/joints_pos'][0])))
+        # obs_pos = torch.tensor(obs_pos, dtype=torch.float32)
+        agent.observe(obs_pos, reward, done, reset=False)
 
         # experiences = [[{'state': obs}],[{'action': action}],[{'reward': reward}],[{'is_state_terminal': done}],[{'next_state': next_obs}]]
         # agent.update(experiences)
@@ -407,17 +404,29 @@ for episode in range(3000):
 
     if episode % 1 == 0:
         print(f'Episode: {episode + 1}, Total Reward: {R}')
+        reward_plot.append(R)
+        episode_plot.append(episode+1)
     if episode % 10 == 0:
         print('statistics:', agent.get_statistics())
 
-agent.save('trained_agent_2')
+
+plt.plot(episode_plot, reward_plot, '-')
+plt.xlabel("Episode Number")
+plt.ylabel("Total Reward")
+plt.title("Reward v/s Episode Number")
+plt.show()
+plt.savefig('reward_plot_same_initial.png')
+agent.save('test_agent')
 print("TRAINING DONE")
+
 exit()
-agent.load('trained_agent_2')
+agent.load('test_agent')
 
 visual_env = _composer.Environment(reach_site_vision(), time_limit=duration)
 
 frames = []
+eval_rewards = []
+eval_episodes = []
 with agent.eval_mode():
     for i in range(10):
         obs = env.reset()
@@ -450,17 +459,24 @@ with agent.eval_mode():
             if done or reset:
                 break
         print('evaluation episode:', i, 'R:', R)
+        eval_rewards.append(R)
+        eval_episodes.append(i+1)
+
         all_frames = np.concatenate(frames, axis=0)
         filename = f'reach_vision_testing_hd_mpeg4_{i}.gif'
-        # save_video(all_frames, filename, 30)
+        save_video(all_frames, filename, 30)
         frames = []
-
-# for i in range(10):
-#     filename = f'reach_vision_testing_hd_mpeg4_{i}.gif'
-#     filename_mp4 = f'{i}.mp4'
-#     clip = mp.VideoFileClip(filename)
-#     clip.write_videofile(filename_mp4)
-# torch.save(model.state_dict(), 'sac_model.pth')
+# plt.plot(eval_episodes, eval_rewards, '-')
+# plt.xlabel("Episode Number")
+# plt.ylabel("Total Reward")
+# plt.title("Evaluation of trained agent-1")
+# plt.savefig('eval_untrained.png')
+for i in range(10):
+    filename = f'reach_vision_testing_hd_mpeg4_{i}.gif'
+    filename_mp4 = f'{i}.mp4'
+    clip = mp.VideoFileClip(filename)
+    clip.write_videofile(filename_mp4)
+torch.save(model.state_dict(), 'sac_model.pth')
 
 exit()
 

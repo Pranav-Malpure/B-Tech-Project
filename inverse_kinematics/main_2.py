@@ -138,9 +138,9 @@ class SACModel(nn.Module):
         # input_size = torch.prod(torch.tensor(joints_pos_size)).item()
         # print("input_size", input_size)
         self.actor = nn.Sequential(
-            nn.Linear(obs_size, 256),
+            nn.Linear(obs_size, 128),
             nn.ReLU(),
-            nn.Linear(256, 256),
+            nn.Linear(128, 256),
             nn.ReLU(),
             nn.Linear(256, action_size*2),
             Lambda(self.squashed_diagonal_gaussian_head)
@@ -171,9 +171,9 @@ class SACModel(nn.Module):
     def make_q_func_with_optimizer(self, obs_size, action_size):
         q_func = nn.Sequential(
             pfrl.nn.ConcatObsAndAction(),
-            nn.Linear(obs_size + action_size, 256),
+            nn.Linear(obs_size + action_size, 128),
             nn.ReLU(),
-            nn.Linear(256, 256),
+            nn.Linear(128, 256),
             nn.ReLU(),
             nn.Linear(256, 1),
         )
@@ -346,8 +346,9 @@ experiment = copy.deepcopy(torch.tensor(obs[3]['jaco_arm/joints_pos']))
 # agent.load('trained_agent')
 
 
-
-
+reward_plot = []
+episode_plot = []
+"""
 for episode in range(3000):
     obs = env.reset()
     # obs = env.step([0, 0, 0, 0, 0, 0, 1, 1, 1])
@@ -407,19 +408,31 @@ for episode in range(3000):
 
     if episode % 1 == 0:
         print(f'Episode: {episode + 1}, Total Reward: {R}')
+        episode_plot.append(episode+1)
+        reward_plot.append(R)
     if episode % 10 == 0:
         print('statistics:', agent.get_statistics())
 
-agent.save('trained_agent_2')
+agent.save('testing_with_changed_neural_structure')
+plt.plot(episode_plot, reward_plot, '-')
+plt.xlabel("Episode Number")
+plt.ylabel("Total Reward")
+plt.title("Reward v/s Episode Number")
+plt.show()
+plt.savefig('reward_plot.png')
+
 print("TRAINING DONE")
-exit()
-agent.load('trained_agent_2')
+"""
+# exit()
+agent.load('testing_with_changed_neural_structure')
 
 visual_env = _composer.Environment(reach_site_vision(), time_limit=duration)
 
 frames = []
+eval_rewards = []
+eval_episodes = []
 with agent.eval_mode():
-    for i in range(10):
+    for i in range(20):
         obs = env.reset()
         # obs =  env.step([0, 0, 0, 0, 0, 0, 1, 1, 1])
         obs_ = obs[3]
@@ -450,11 +463,17 @@ with agent.eval_mode():
             if done or reset:
                 break
         print('evaluation episode:', i, 'R:', R)
+        eval_rewards.append(R)
+        eval_episodes.append(i+1)
         all_frames = np.concatenate(frames, axis=0)
         filename = f'reach_vision_testing_hd_mpeg4_{i}.gif'
         # save_video(all_frames, filename, 30)
         frames = []
-
+plt.plot(eval_episodes, eval_rewards, '-')
+plt.xlabel("Episode Number")
+plt.ylabel("Total Reward")
+plt.title("Evaluation of trained agent-1")
+plt.savefig('eval2.png')
 # for i in range(10):
 #     filename = f'reach_vision_testing_hd_mpeg4_{i}.gif'
 #     filename_mp4 = f'{i}.mp4'
