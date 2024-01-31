@@ -17,12 +17,19 @@ from dm_control.manipulation.shared import registry
 from dm_control.manipulation.shared import robots
 from dm_control.manipulation.shared import tags
 from dm_control.manipulation.shared import workspaces
+from dm_control.composer import variation
 from dm_control.utils import rewards
 import numpy as np
+from dm_control.entities.manipulators import kinova
+
+
 
 
 _ReachWorkspace = collections.namedtuple(
     '_ReachWorkspace', ['target_bbox', 'tcp_bbox', 'arm_offset'])
+global start_pos_for_print
+global target_pos_for_print
+global target_quat_for_print
 
 # Ensures that the props are not touching the table before settling.
 _PROP_Z_OFFSET = 0.001
@@ -38,6 +45,15 @@ _DUPLO_WORKSPACE = _ReachWorkspace(
 
 _SITE_WORKSPACE = _ReachWorkspace(
     target_bbox=workspaces.BoundingBox(
+        lower=(-1.2, -1.2, 0.02),
+        upper=(1.2, 1.2, 0.4)),
+    tcp_bbox=workspaces.BoundingBox(
+        lower=(-0.2, -0.2, 0.02),
+        upper=(1.2, 1.2, 0.4)),
+    arm_offset=robots.ARM_OFFSET)
+
+_SITE_WORKSPACE_2 = _ReachWorkspace(
+    target_bbox=workspaces.BoundingBox(
         lower=(-0.2, -0.2, 0.02),
         upper=(1.2, 1.2, 0.4)),
     tcp_bbox=workspaces.BoundingBox(
@@ -45,7 +61,9 @@ _SITE_WORKSPACE = _ReachWorkspace(
         upper=(1.2, 1.2, 0.4)),
     arm_offset=robots.ARM_OFFSET)
 
-_TARGET_RADIUS = 0.1
+_TARGET_RADIUS = 0.3
+_TARGET_RADIUS_2 = 0.1
+
 
 
 class Reach_task(composer.Task):
@@ -106,6 +124,7 @@ class Reach_task(composer.Task):
       obs = observable.MJCFFeature('pos', self._target)
       obs.configure(**obs_settings.prop_pose._asdict())
     #   self._task_observables['target_position'] = obs # This is for that, the artificial target site is added to the image array
+    self.previous_episode_target_reached = True # Ensures that only when the target is reached we start with a new one 
 
     
 
@@ -137,6 +156,10 @@ class Reach_task(composer.Task):
   @property
   def hand(self):
     return self._hand
+  
+  @property
+  def target(self):
+    return self._target
 
   @property
   def task_observables(self):
@@ -150,9 +173,18 @@ class Reach_task(composer.Task):
     # print("hand_pos ", hand_pos)
     # print("Inside Task_reach.py file, distance = ", distance)
     k = 0.0001
-    return -k*distance if distance >= _TARGET_RADIUS else 10
-    # return rewards.tolerance(
-        # distance, bounds=(0, _TARGET_RADIUS), margin=_TARGET_RADIUS)
+    # return -k*distance if distance >= _TARGET_RADIUS else 10
+    if hasattr(self, 'time_inside_radius'):
+      if self.time_inside_radius >= 0 and distance <= _TARGET_RADIUS:
+        return 1*self.time_inside_radius*100
+      elif self.time_inside_radius >= 0 and distance > _TARGET_RADIUS:
+        del self.time_inside_radius
+        print("HMMM")
+        return -1
+    else:
+      normalized_distance = np.linalg.norm(2*_SITE_WORKSPACE.target_bbox.upper)
+      return -np.exp(-distance/normalized_distance) 
+      # return -rewards.tolerance(distance, bounds=(0, _TARGET_RADIUS), margin=_TARGET_RADIUS)
 
   def should_terminate_episode(self, physics):
     """Determines whether the episode should terminate given the physics state."""
@@ -160,19 +192,52 @@ class Reach_task(composer.Task):
     target_pos = physics.bind(self._target).xpos
     distance = np.linalg.norm(hand_pos - target_pos)
     if distance <= _TARGET_RADIUS:
-      return True
+        if not hasattr(self, 'time_inside_radius'):
+            self.time_inside_radius = 0  # Initialize time inside radius
+        self.time_inside_radius += self.control_timestep  # Increment time inside radius
+        print(self.time_inside_radius)
+    # else:
+    #     self.time_inside_radius = 0  # Reset time inside radius if outside the radius
+
+    if hasattr(self, 'time_inside_radius'):
+      if distance > _TARGET_RADIUS:
+        raise ValueError("Something wrong")
+      if self.time_inside_radius > 1:
+        print("Target reached continuously for 1 seconds")
+        self.previous_episode_target_reached = True
+        return True
+      else:
+        return False
     else:
-      return False
+        return False
 
   def initialize_episode(self, physics, random_state):
-    self._hand.set_grasp(physics, close_factors=random_state.uniform())
-    # self._hand.set_grasp(physics, close_factors=1.0)
-    self._tcp_initializer(physics, random_state)
-    if self._prop:
-      self._prop_placer(physics, random_state)
-    else:
-      physics.bind(self._target).pos = (
-          self._target_placer(random_state=random_state))
+    # self._hand.set_grasp(physics, close_factors=random_state.uniform())
+    global start_pos_for_print
+    global target_pos_for_print
+    global target_quat_for_print
+    print("previous_episode_target_reached?", self.previous_episode_target_reached)
+    if self.previous_episode_target_reached:
+      self._hand.set_grasp(physics, close_factors=1.0)
+      start_pos_for_print = self._tcp_initializer(physics, random_state) #actually this function does not return this, but i changed it a bit
+      if self._prop:
+        self._prop_placer(physics, random_state)
+      else:
+        while(True):
+          target_pos_for_print = self._target_placer(random_state=random_state)
+          target_quat_for_print = variation.evaluate(workspaces.DOWN_QUATERNION, random_state=random_state)
+          if self._tcp_initializer.check_target_feasibility(physics, random_state, target_pos_for_print, target_quat_for_print) and np.linalg.norm(start_pos_for_print - target_pos_for_print)>_TARGET_RADIUS:
+            print("Target feasible, start out of target radius, so proceeding to start training/evaluation")
+            break
+      physics.bind(self._target).pos = target_pos_for_print
+      self.previous_episode_target_reached = False
+    if hasattr(self, 'time_inside_radius'):
+      del self.time_inside_radius
+    print("Start position:", start_pos_for_print)
+    physics.bind(self._target).pos = target_pos_for_print
+    print("Target position:", target_pos_for_print, target_quat_for_print)
+    distance_start_target = np.linalg.norm(start_pos_for_print - target_pos_for_print)
+    print("Distance from start to target:", distance_start_target)
 
 
 def _reach(obs_settings, use_site):
@@ -187,8 +252,9 @@ def _reach(obs_settings, use_site):
     An instance of `reach.Reach`.
   """
   arena = arenas.Standard()
-  arm = robots.make_arm(obs_settings=obs_settings)
-  hand = robots.make_hand(obs_settings=obs_settings)
+  arm = robots.make_arm_custom(obs_settings=obs_settings)
+  hand = robots.make_hand_custom(obs_settings=obs_settings)
+
   if use_site:
     workspace = _SITE_WORKSPACE
     prop = None

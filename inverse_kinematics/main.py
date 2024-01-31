@@ -62,6 +62,7 @@ from dm_control.entities.manipulators import kinova
 from dm_control import viewer
 from dm_control.composer import Task
 
+import dm_env
 from dm_env import Environment
 from dm_control.composer.environment import Environment # Even though this may be labelled as blue, it is a class from the file 
   
@@ -75,8 +76,11 @@ import moviepy.editor as mp
 
 # from dmc
 
-duration = 500    # (seconds)
+duration = 250    # (seconds)
 framerate = 30  # (Hz)
+
+# import torch
+# device = torch.device('mps')
 
 import mujoco.viewer as gui_viewer
 from Task_reach import Reach_task, reach_site_vision, reach_site_features
@@ -124,10 +128,11 @@ class SACModel(nn.Module):
         #     nn.Tanh()
         # )
         # self.obs_shape = obs
-        self.action_size = action_size
-        obs_size = obs.shape[1]
+        self.action_size = action_size-3
+        # obs_size = obs.shape[1]
+        obs_size = obs
         print("SAC class", obs_size)
-        print("SAC class action", action_size)
+        print("SAC class action", self.action_size)
         # input_size = torch.prod(torch.tensor(joints_pos_size)).item()
         # print("input_size", input_size)
         self.actor = nn.Sequential(
@@ -135,7 +140,7 @@ class SACModel(nn.Module):
             nn.ReLU(),
             nn.Linear(256, 256),
             nn.ReLU(),
-            nn.Linear(256, action_size*2),
+            nn.Linear(256, self.action_size*2),
             Lambda(self.squashed_diagonal_gaussian_head)
         )
         torch.nn.init.xavier_uniform_(self.actor[0].weight)
@@ -158,8 +163,8 @@ class SACModel(nn.Module):
         #     n_hidden_layers=3,
         #     action_space=action_size
         # )
-        self.q_func1, self.q_func1_optimizer = self.make_q_func_with_optimizer(obs_size, action_size)
-        self.q_func2, self.q_func2_optimizer = self.make_q_func_with_optimizer(obs_size, action_size)
+        self.q_func1, self.q_func1_optimizer = self.make_q_func_with_optimizer(obs_size, self.action_size)
+        self.q_func2, self.q_func2_optimizer = self.make_q_func_with_optimizer(obs_size, self.action_size)
 
     def make_q_func_with_optimizer(self, obs_size, action_size):
         q_func = nn.Sequential(
@@ -189,7 +194,7 @@ class SACModel(nn.Module):
             base_distribution, [distributions.transforms.TanhTransform(cache_size=1)]
         )
 
-np.random.seed(4)
+np.random.seed(10)
 
 
 # Visualize the joint axis
@@ -199,7 +204,7 @@ scene_option.flags[enums.mjtVisFlag.mjVIS_JOINT] = True
 
 name = 'jaco_arm'
 arm = kinova.JacoArm(name)
-arm._build()
+arm._build(name)
 arm_observables = arm._build_observables()
 # print(arm)
 hand = kinova.JacoHand()
@@ -272,12 +277,12 @@ _SITE_WORKSPACE = _ReachWorkspace(
         upper=(0.2, 0.2, 0.4)),
     arm_offset=robots.ARM_OFFSET)
 
-arena = arenas.Standard()
+# arena = arenas.Standard()
 # task_object = Reach_task(arena=arena, arm=arm, hand=hand, prop=None, obs_settings=observations.PERFECT_FEATURES, workspace=_SITE_WORKSPACE, control_timestep=0.02)
 task_object = reach_site_features()
 # task_object = reach_site_vision()
 
-env = _composer.Environment(task = task_object, time_limit = duration, random_state=1)
+env = _composer.Environment(task = task_object, time_limit = duration, random_state=3)
 action_dim = env.action_spec().shape[0]
 action_spec = env.action_spec()
 state_dim = np.size(env.random_state.uniform(
@@ -285,6 +290,10 @@ state_dim = np.size(env.random_state.uniform(
 # print("action_spec, ", action_dim)
 # print("state_spec, ", state_dim)
 
+# obs = env.step([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1, 1, 1])
+
+# print(obs[3])
+"""
 obs = env.step([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1, 1, 1])
 
 print(obs[3])
@@ -304,7 +313,10 @@ print("joints_pos_type = ", type(joints_pos))
 print("joints_pos.shape = ", joints_pos.shape)
 print("joints_pos.shape[1] = ", joints_pos.shape[1])
 print("action_dim = ", action_dim)
-model = SACModel(joints_pos, action_dim)
+"""
+
+# model = SACModel(joints_pos, action_dim)
+model = SACModel(6, action_dim)
 
 optimizer = optim.Adam(model.parameters(), lr = 3e-4)
 policy = model.actor
@@ -312,7 +324,7 @@ policy = model.actor
 torch.nn.init.xavier_uniform_(policy[0].weight)
 torch.nn.init.xavier_uniform_(policy[2].weight)
 torch.nn.init.xavier_uniform_(policy[4].weight, gain=1)
-policy_optimizer = torch.optim.Adam(policy.parameters(), lr=3e-4)
+policy_optimizer = torch.optim.Adam(policy.parameters(), lr=3e-5)
 
 agent = SoftActorCritic(
     policy=model.actor,
@@ -324,10 +336,10 @@ agent = SoftActorCritic(
     replay_buffer=replay_buffers.ReplayBuffer(capacity=10 ** 6),
     gamma=0.99,
     # phi = lambda x: x.astype('float32', copy=False), 
-    gpu=-1,
+    gpu=-1, #for using mps, set to 0
 )
 
-experiment = copy.deepcopy(torch.tensor(obs[3]['jaco_arm/joints_pos']))
+# experiment = copy.deepcopy(torch.tensor(obs[3]['jaco_arm/joints_pos']))
 # experiments.train_agent_batch_with_evaluation(
 #     agent = agent, env=make_batch_env(test=False),
 # )
@@ -341,7 +353,8 @@ experiment = copy.deepcopy(torch.tensor(obs[3]['jaco_arm/joints_pos']))
 reward_plot = []
 episode_plot = []
 
-for episode in range(10):
+for episode in range(100):
+    print("YOOOOOO__________-")
     obs = env.reset()
     # obs = env.step([0, 0, 0, 0, 0, 0, 1, 1, 1])
     obs_ = obs[3]
@@ -358,8 +371,10 @@ for episode in range(10):
     max_episode_len = float('inf')
     while True:
         # print("While loop counter: ",counter)
-
         obs_pos = torch.tensor(get_angles(obs_['jaco_arm/joints_pos'][0]), dtype=torch.float32)
+
+        # obs_pos = torch.tensor(obs_['jaco_arm/joints_torque'][0], dtype=torch.float32)
+
         # obs_pos = torch.from_numpy(np.array(get_angles(obs_['jaco_arm/joints_pos'][0])))
         # obs_pos = torch.tensor(obs_pos, dtype=torch.float32)
         # obs_pos = get_angles(obs_['jaco_arm/joints_pos'][0])
@@ -373,20 +388,33 @@ for episode in range(10):
         # action = agent.act(obs_image.permute(0,3,1,2))
         # print("obs_shape ", obs_pos.shape)
         action = agent.act(obs_pos)
+        extend = np.array([0,0,0])
+        action = np.concatenate((action, extend))
         time_step = env.step(action)
         reward = time_step.reward
         if reward == None:
             continue
-        if time_step.step_type == 1:
+        # if time_step.step_type == 1:
+        #     done = False
+        # elif time_step.step_type == 2:
+        #     print("hello there:)")
+        #     done = True
+        if time_step.step_type == dm_env.StepType.FIRST:
             done = False
-        elif time_step.step_type == 2:
+        elif time_step.step_type == dm_env.StepType.MID:
+            done = False
+        elif time_step.step_type == dm_env.StepType.LAST:
+            print("Hello there:)")
             done = True
         
         # next_obs = time_step.observation['front_close']
         obs_ = time_step[3]
         # reset = t > max_episode_len
         # reset = False 
+        
         obs_pos = torch.tensor(get_angles(obs_['jaco_arm/joints_pos'][0]), dtype=torch.float32)
+        # obs_pos = torch.tensor(obs_['jaco_arm/joints_torque'][0], dtype=torch.float32)
+
         # obs_pos = torch.from_numpy(np.array(get_angles(obs_['jaco_arm/joints_pos'][0])))
         # obs_pos = torch.tensor(obs_pos, dtype=torch.float32)
         agent.observe(obs_pos, reward, done, reset=False)
@@ -399,11 +427,14 @@ for episode in range(10):
         t += 1
 
         if done:
+            print("episode done")
             break
+
         counter += 1
 
     if episode % 1 == 0:
         print(f'Episode: {episode + 1}, Total Reward: {R}')
+        print("counter", counter)
         reward_plot.append(R)
         episode_plot.append(episode+1)
     if episode % 10 == 0:
@@ -436,9 +467,12 @@ with agent.eval_mode():
         R = 0
         t = 0
         while True:
-            obs_pos = (get_angles(obs_['jaco_arm/joints_pos'][0]))
+            # obs_pos = (get_angles(obs_['jaco_arm/joints_pos'][0]))
+            obs_pos = obs_['jaco_arm/joints_torque'][0]
             # obs_pos = get_angles(obs_['jaco_arm/joints_pos'][0])
             action = agent.act(torch.tensor(obs_pos, dtype=torch.float32))
+            extend = np.array([0,0,0])
+            action = np.concatenate((action, extend))   
             time_step = env.step(action)
             r = time_step.reward
             if r == None:
@@ -448,7 +482,8 @@ with agent.eval_mode():
             elif time_step.step_type == 2:
                 done = True
             obs_ = time_step[3]
-            obs_pos = torch.tensor(get_angles(obs_['jaco_arm/joints_pos'][0]), dtype=torch.float32)
+            # obs_pos = torch.tensor(get_angles(obs_['jaco_arm/joints_pos'][0]), dtype=torch.float32)
+            obs_pos = torch.tensor(obs_['jaco_arm/joints_torque'][0], dtype=torch.float32)
             # obs, r, done, _ = env.step(action)
             R += r
             t += 1
