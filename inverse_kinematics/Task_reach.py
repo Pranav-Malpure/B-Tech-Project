@@ -5,7 +5,8 @@ __author__ = "Pranav Malpure"
 import collections
 
 from dm_control import composer
-from dm_control.composer import initializers
+# from dm_control.composer import initializers
+from tcp_initializer import ToolCenterPointInitializer
 from dm_control.composer.observation import observable
 from dm_control.composer.variation import distributions
 from dm_control.entities import props
@@ -87,7 +88,7 @@ class Reach_task(composer.Task):
     self._arm.attach(self._hand)
     self._arena.attach_offset(self._arm, offset=workspace.arm_offset)
     self.control_timestep = control_timestep
-    self._tcp_initializer = initializers.ToolCenterPointInitializer(
+    self._tcp_initializer = ToolCenterPointInitializer(
         self._hand, self._arm,
         position=distributions.Uniform(*workspace.tcp_bbox),
         quaternion=workspaces.DOWN_QUATERNION, max_ik_attempts=1000,
